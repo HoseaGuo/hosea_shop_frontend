@@ -1,5 +1,5 @@
 <template>
-  <router-view  v-slot="{ Component }">
+  <router-view v-slot="{ Component }">
     <Suspense>
       <component :is="Component" />
     </Suspense>

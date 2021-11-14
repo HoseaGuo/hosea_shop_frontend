@@ -1,8 +1,10 @@
 import {
   createMemoryHistory,
   createRouter as _createRouter,
-  createWebHistory
+  createWebHistory,
+  RouteRecordRaw
 } from 'vue-router'
+import backendRoutes from './pages/Backend/route'
 
 // Auto generates routes from vue files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
@@ -16,11 +18,9 @@ import {
 //   }
 // })
 
-export default [
-  {
-    path: '/backend',
-    component: () => import('./pages/Backend/Home.vue')
-  },
+let routes: RouteRecordRaw[] = [
+  // 后团页面
+  backendRoutes,
   {
     path: '/',
     component: () => import('./pages/Frontend/Home.vue')
@@ -34,7 +34,13 @@ export default [
     component: () => import('./pages/Frontend/Article/Details.vue')
   },
   // {
+  //   path: "/:pathMatch(.*)",
+  //   redirect: '/', // 重定向到首页
+  // }
+  // {
   //   path: '/about',
   //   component: () => import('./pages/About.vue')
   // }
 ]
+
+export default routes;

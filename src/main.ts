@@ -2,9 +2,12 @@
 import App from './App.vue'
 import routes from './routes'
 import viteSSR from 'vite-ssr'
+// elementui引入
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import "../styles/reset.scss"
 
-export default viteSSR(App, { routes }, async ({app, router}) => {
+export default viteSSR(App, { routes }, async ({ app, router }) => {
   /* Vite SSR main hook for custom logic */
   /* const { app, router, initialState, ... } = context */
   // router.beforeEach(async (to, from) => {
@@ -23,4 +26,5 @@ export default viteSSR(App, { routes }, async ({app, router}) => {
   //   // This will modify initialState
   //   to.meta.state = await response.json() */
   // })
+  app.use(ElementPlus);
 })
