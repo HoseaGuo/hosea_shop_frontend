@@ -5,7 +5,8 @@ let route: RouteRecordRaw = {
   component: () => import('./Home.vue'),
   children: [
     {
-      path: "article",
+      path: "article-management/article",
+      name: 'article',
       component: () => import('./ArticleManagement/Article.vue'),
     },
     {
@@ -14,10 +15,14 @@ let route: RouteRecordRaw = {
     },
     {
       path: "/:pathMatch(.*)",
-      redirect: '/backend/article', // 重定向到后台首页
+      redirect: {
+        name: 'article'
+      }, // 重定向到后台首页
     }
   ],
-  redirect: '/backend/article', // 重定向到后台首页
+  redirect: {
+    name: 'article'
+  }, // 重定向到后台首页
 
 }
 

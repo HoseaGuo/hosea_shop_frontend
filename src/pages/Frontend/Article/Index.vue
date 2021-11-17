@@ -7,16 +7,16 @@
 </template>
 
 <script lang="ts">
-export default{
+export default {
 
 }
 </script>
 <style lang="scss" scoped>
-  .article{
-    margin: 10px auto;
-    max-width: 500px;
-    p{
-      line-height: 1.5;
-    }
+.article {
+  margin: 10px auto;
+  max-width: 500px;
+  p {
+    line-height: 1.5;
   }
+}
 </style>

@@ -7,6 +7,11 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import "../styles/reset.scss"
 
+import hljs from "highlight.js"; // 引入 highlight.js
+
+// 忽略highlight的unescapedHTML警告
+hljs.configure({ ignoreUnescapedHTML: true })
+
 export default viteSSR(App, { routes }, async ({ app, router }) => {
   /* Vite SSR main hook for custom logic */
   /* const { app, router, initialState, ... } = context */
@@ -26,5 +31,13 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
   //   // This will modify initialState
   //   to.meta.state = await response.json() */
   // })
+
+  // #在main.js定义自定义指令 
+  app.directive('highlight', function (el) {
+    let blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block) => {
+      hljs.highlightElement(block);
+    })
+  })
   app.use(ElementPlus);
 })
