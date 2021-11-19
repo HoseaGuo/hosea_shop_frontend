@@ -34,10 +34,12 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
 
   // #在main.js定义自定义指令 
   app.directive('highlight', function (el) {
+    // console.log(el.innerHTML)
     let blocks = el.querySelectorAll('pre code');
     blocks.forEach((block) => {
       hljs.highlightElement(block);
     })
+    // hljs.highlightElement(el)
   })
   app.use(ElementPlus);
 })
