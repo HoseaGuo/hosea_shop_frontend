@@ -5,7 +5,7 @@ import viteSSR from 'vite-ssr'
 // elementui引入
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import "../styles/reset.scss"
+import "./styles/reset.scss"
 
 import hljs from "highlight.js"; // 引入 highlight.js
 

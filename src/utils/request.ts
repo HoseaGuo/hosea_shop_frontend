@@ -24,13 +24,15 @@ function request(_options) {
     }
     instance.request(options).then(async (response) => {
 
-      let { data, status } = response;
+      let { data: axiosData, status } = response;
+      let { data, code, msg } = axiosData;
       if (status === 200) {
-        result.success = true;
-        result.msg = "request success"
+        // 请求成功的，根据返回的数据进行进一步的前端处理
+        result.success = code === 0;
+        result.msg = msg;
         result.data = data;
       } else {
-        result.msg = `HTTP status ${status}`
+        result.msg = msg || `HTTP status ${status}`
       }
       resolve(result)
     }).catch(error => {

@@ -19,8 +19,12 @@ export default {
         index: "article-management",
         children: [
           {
-            title: "文章",
+            title: "文章详情",
             index: "article",
+          },
+          {
+            title: "文章列表",
+            index: "article-list",
           },
         ],
       },
@@ -93,7 +97,11 @@ export default {
             :collapse="menuCollapse"
             :default-active="defaultActive"
           >
-            <el-sub-menu v-for="(menu, index) in menus" :key="index" :index="menu.index">
+            <el-sub-menu
+              v-for="(menu, index) in menus"
+              :key="index"
+              :index="menu.index"
+            >
               <template #title>
                 <el-icon>
                   <notebook />
@@ -104,7 +112,8 @@ export default {
                 v-for="(subMenuItem, subIndex) in menu.children"
                 :key="subIndex"
                 :index="`/backend/${menu.index}/${subMenuItem.index}`"
-              >{{ subMenuItem.title }}</el-menu-item>
+                >{{ subMenuItem.title }}</el-menu-item
+              >
             </el-sub-menu>
           </el-menu>
         </aside>
@@ -112,7 +121,9 @@ export default {
         <div class="main">
           <!-- 面包屑 -->
           <el-breadcrumb separator="/">
-            <el-breadcrumb-item v-for="item in breadcrumbs" :key="item">{{item}}</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="item in breadcrumbs" :key="item">{{
+              item
+            }}</el-breadcrumb-item>
           </el-breadcrumb>
           <!-- 内容 路由控制显示 -->
           <div class="main-body">
@@ -181,6 +192,7 @@ export default {
     .main {
       height: 100%;
       flex: 1;
+      width: 0;
       display: flex;
       flex-direction: column;
 

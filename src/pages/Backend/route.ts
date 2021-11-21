@@ -10,6 +10,11 @@ let route: RouteRecordRaw = {
       component: () => import('./ArticleManagement/Article.vue'),
     },
     {
+      path: "article-management/article-list",
+      name: 'article-list',
+      component: () => import('./ArticleManagement/ArticleList.vue'),
+    },
+    {
       path: "test",
       component: () => import('./ArticleManagement/Test.vue'),
     },

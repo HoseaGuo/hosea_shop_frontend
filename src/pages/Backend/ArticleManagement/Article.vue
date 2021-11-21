@@ -1,32 +1,26 @@
 
 <script lang="ts">
 import { ref } from "vue";
-// @ts-ignore
-import { marked } from "marked";
-import hljs from "highlight.js"; // 引入 highlight.js
+// import request from '../../../utils/request'
+// import request from "@/utils/request";
+// import request from '@element-plus/icons'
 import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的是sublime样式
+// 引入处理markdown的web worker
 import markedWorker from "./worker/markedWorker?url";
-
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  // highlight: function (code) {
-  //   return hljs.highlightAuto(code).value;
-  // },
-  pedantic: false,
-  gfm: true,
-  // tables: true,
-  breaks: true,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false,
-});
+import request from "@utils/request";
 
 export default {
   setup() {
+    // 文章标题
+    let title = ref("");
+
+    // markdown原内容
+    let markdown = ref("");
+
+    // 用于预览的html
     let html = ref("");
 
-    let timer = -1;
+    let timer: any = -1;
 
     let markedWorkerConnect;
 
@@ -41,25 +35,40 @@ export default {
 
         markedWorkerConnect.onmessage = function (e) {
           html.value = e.data;
+          markedWorkerConnect?.terminate();
         };
 
         markedWorkerConnect.postMessage(value);
-
-        // html.value = marked(value);
-
-        // html.value = marked(value).replace(
-        //   /(<code>)(.*?)(<\/code>)/gs,
-        //   function ($1, $2, $3, $4) {
-        //     let v = hljs.highlightAuto($3).value;
-        //     return $2 + v + $4;
-        //   }
-        // );
       }, 200);
     }
 
+    async function handleSubmit() {
+      let postData = {
+        title: title.value,
+        content: markdown.value,
+      };
+      // console.log(postData);
+
+      // let result: any = await request({
+      //   url: "https://sdk.shruiwan.com/home/topics/5dc27f1354c21d27a3cd7500/json?app_id=5c64ca9454c21d3e66131409",
+      // });
+      // console.log(result);
+
+      let result = await request({
+        url: "/v1/article",
+        method: "post",
+        data: postData,
+      });
+
+      console.log(result);
+    }
+
     return {
+      title,
+      markdown,
       html,
       handleInput,
+      handleSubmit,
     };
   },
 };
@@ -67,9 +76,19 @@ export default {
 
 <template>
   <div class="wrapper">
-    <input type="text" class="article-title" placeholder="请输入标题" />
+    <div class="top">
+      <input
+        v-model="title"
+        type="text"
+        class="article-title"
+        placeholder="请输入标题"
+      />
+      <el-button type="primary" class="btn-submit" @click="handleSubmit"
+        >保存</el-button
+      >
+    </div>
     <div class="article-content">
-      <textarea @input="handleInput" />
+      <textarea @input="handleInput" v-model="markdown" />
       <div class="article-preview" v-html="html"></div>
     </div>
   </div>
@@ -81,16 +100,24 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.article-title {
-  display: block;
-  border: none;
-  width: 100%;
-  // border-bottom: 1px solid #ccc;
-  background: #f8f8f8;
-  padding: 10px;
-  font-size: 20px;
-  color: #666;
+.top {
+  display: flex;
+  .article-title {
+    display: block;
+    border: none;
+    flex: 1;
+    // border-bottom: 1px solid #ccc;
+    background: #f8f8f8;
+    padding: 10px;
+    font-size: 20px;
+    color: #666;
+  }
+  .btn-submit {
+    margin-left: 10px;
+    width: 80px;
+  }
 }
+
 .article-content {
   margin-top: 10px;
   display: flex;
