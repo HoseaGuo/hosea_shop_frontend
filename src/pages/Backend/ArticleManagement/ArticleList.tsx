@@ -1,4 +1,4 @@
-<script lang="ts">
+
 import { defineComponent, onMounted, ref } from "vue";
 import request from "@utils/request";
 import moment from "moment";
@@ -6,9 +6,16 @@ import moment from "moment";
 export default defineComponent({
   setup() {
     // 表格数据
-    let tableData = ref([]);
+    let tableData = ref([
+      {
 
-    let columnData = ref([
+      },
+      {
+
+      }
+    ]);
+
+    let columnData = [
       {
         prop: "title",
         label: "标题",
@@ -30,13 +37,17 @@ export default defineComponent({
       {
         prop: "",
         label: "操作",
-        scopedSlots: {
-          // default: () => {
-          //   return <div>123</div>;
-          // },
+        slots: {
+          default: () => {
+            return <>
+              <el-button size="mini" type="primary">编辑</el-button>
+              <el-button size="mini" type="danger">删除</el-button>
+            </>
+          },
         },
       },
-    ]);
+    ]
+
     async function queryArticle() {
       let result: any = await request({
         url: "/v1/article",
@@ -46,31 +57,20 @@ export default defineComponent({
       }
     }
     onMounted(() => {
-      queryArticle();
+      // queryArticle();
     });
-
-    return {
-      queryArticle,
-      tableData,
-      columnData,
-    };
+    return () => {
+      return <div>
+        <el-table size="mini" data={tableData.value} border style={{ width: "100%" }}>
+          {
+            columnData.map((item, index) => {
+              return <el-table-column key={index} {...item} v-slots={item.slots} />
+            })
+          }
+        </el-table>
+      </div>
+    }
   },
 });
-</script>
-
-<template>
-  <div>
-    <el-table :data="tableData" border style="width: 100%">
-      <el-table-column
-        v-for="(item, index) in columnData"
-        :key="index"
-        v-bind="item"
-      />
-    </el-table>
-  </div>
-</template>
-
-<style lang="scss">
-</style>
 
 

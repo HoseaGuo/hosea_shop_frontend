@@ -1,9 +1,6 @@
 
 <script lang="ts">
 import { ref } from "vue";
-// import request from '../../../utils/request'
-// import request from "@/utils/request";
-// import request from '@element-plus/icons'
 import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的是sublime样式
 // 引入处理markdown的web worker
 import markedWorker from "./worker/markedWorker?url";
@@ -77,15 +74,8 @@ export default {
 <template>
   <div class="wrapper">
     <div class="top">
-      <input
-        v-model="title"
-        type="text"
-        class="article-title"
-        placeholder="请输入标题"
-      />
-      <el-button type="primary" class="btn-submit" @click="handleSubmit"
-        >保存</el-button
-      >
+      <input v-model="title" type="text" class="article-title" placeholder="请输入标题" />
+      <el-button type="primary" class="btn-submit" @click="handleSubmit">保存</el-button>
     </div>
     <div class="article-content">
       <textarea @input="handleInput" v-model="markdown" />

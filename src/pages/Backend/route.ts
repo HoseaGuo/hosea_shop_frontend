@@ -12,11 +12,12 @@ let route: RouteRecordRaw = {
     {
       path: "article-management/article-list",
       name: 'article-list',
-      component: () => import('./ArticleManagement/ArticleList.vue'),
+      component: () => import('./ArticleManagement/ArticleList'),
     },
     {
-      path: "test",
-      component: () => import('./ArticleManagement/Test.vue'),
+      path: "article-management/test",
+      name: "test",
+      component: () => import('./ArticleManagement/Test'),
     },
     {
       path: "/:pathMatch(.*)",
