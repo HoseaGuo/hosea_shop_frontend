@@ -2,13 +2,13 @@
   "name": "vite-ssr-demo",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite-ssr dev --open",
+    "dev": "vite-ssr dev --force",
     "build": "vite-ssr build",
     "serve": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
-    "@vueuse/head": "^0.6.0",
+    "@vueuse/head": "^0.7.2",
     "axios": "^0.21.4",
     "element-plus": "^1.2.0-beta.3",
     "highlight.js": "^11.3.1",
@@ -19,6 +19,7 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@emotion/css": "^11.5.0",
     "@types/node": "^16.11.9",
     "@vitejs/plugin-vue": "^1.6.1",
     "@vitejs/plugin-vue-jsx": "^1.3.0",

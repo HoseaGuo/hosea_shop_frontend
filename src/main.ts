@@ -5,8 +5,9 @@ import viteSSR from 'vite-ssr'
 // elementui引入
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+// 重置样式
 import "./styles/reset.scss"
-
+import { createHead } from '@vueuse/head'
 import hljs from "highlight.js"; // 引入 highlight.js
 
 // 忽略highlight的unescapedHTML警告
@@ -41,5 +42,11 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
     })
     // hljs.highlightElement(el)
   })
+
   app.use(ElementPlus);
+
+  /* 使用 添加 head tags and attributes */
+  const head = createHead();
+  app.use(head);
+  return { head }
 })

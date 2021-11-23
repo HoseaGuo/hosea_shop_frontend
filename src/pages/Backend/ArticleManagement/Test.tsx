@@ -1,27 +1,15 @@
-import { styled, css, setup } from 'goober';
-import { createApp, h, defineCustomElement, createRenderer, ref, toRef } from 'vue'
-setup(h)
-
+import { css } from 'goober';
 
 export default {
   setup() {
-
-
-
-
-
     return () => {
-      return <div>
-        123
-        <Container >
-          <template>123</template>
-        </Container >
+      return <div class={mainCls}>
+        asd
       </div>
     }
   }
 }
 
-const Container = styled('div')((props) => ({
-  color: "red"
-}));
-
+const mainCls = css`
+  
+`

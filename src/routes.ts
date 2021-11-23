@@ -23,7 +23,7 @@ let routes: RouteRecordRaw[] = [
   backendRoutes,
   {
     path: '/',
-    component: () => import('./pages/Frontend/Home.vue')
+    component: () => import('./pages/Frontend/Home')
   },
   {
     path: '/article',
