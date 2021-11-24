@@ -23,7 +23,15 @@
       "@utils/*": [
         "src/utils/*"
       ],
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "tags": [
+          
+        ]
+      }
+    ]
   },
   "include": [
     "src/**/*.ts",
