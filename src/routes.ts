@@ -19,20 +19,20 @@ import backendRoutes from './pages/Backend/route'
 // })
 
 let routes: RouteRecordRaw[] = [
-  // 后团页面
-  backendRoutes,
+  // 后台页面
+  // backendRoutes,
   {
     path: '/',
     component: () => import('./pages/Frontend/Home')
   },
-  {
-    path: '/article',
-    component: () => import('./pages/Frontend/Article/Index.vue'),
-  },
-  {
-    path: '/article/details',
-    component: () => import('./pages/Frontend/Article/Details.vue')
-  },
+  // {
+  //   path: '/article',
+  //   component: () => import('./pages/Frontend/Article/Index.vue'),
+  // },
+  // {
+  //   path: '/article/details',
+  //   component: () => import('./pages/Frontend/Article/Details.vue')
+  // },
   // {
   //   path: "/:pathMatch(.*)",
   //   redirect: '/', // 重定向到首页

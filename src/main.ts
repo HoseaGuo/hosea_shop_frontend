@@ -1,12 +1,11 @@
 // import { createApp } from 'vue'
-import App from './App.vue'
+import App from './App'
 import routes from './routes'
 import viteSSR from 'vite-ssr'
 // elementui引入
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-// 重置样式
-import "./styles/reset.scss"
+
 import { createHead } from '@vueuse/head'
 import hljs from "highlight.js"; // 引入 highlight.js
 

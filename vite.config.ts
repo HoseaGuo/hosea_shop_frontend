@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue';
+// import vue from '@vitejs/plugin-vue';
 import viteSSR from 'vite-ssr/plugin.js'
 import vueJsx from '@vitejs/plugin-vue-jsx';
 const { resolve } = require('path');
@@ -17,7 +17,7 @@ export default defineConfig({
       // options are passed on to @vue/babel-plugin-jsx
     }),
     viteSSR(),
-    vue()
+    // vue()
   ],
   server: {
     // 配置代理
