@@ -23,20 +23,20 @@ let routes: RouteRecordRaw[] = [
   // backendRoutes,
   {
     path: '/',
-    component: () => import('./pages/Frontend/Home')
+    component: () => import('./pages/Frontend/Home.vue')
   },
-  // {
-  //   path: '/article',
-  //   component: () => import('./pages/Frontend/Article/Index.vue'),
-  // },
-  // {
-  //   path: '/article/details',
-  //   component: () => import('./pages/Frontend/Article/Details.vue')
-  // },
-  // {
-  //   path: "/:pathMatch(.*)",
-  //   redirect: '/', // 重定向到首页
-  // }
+  {
+    path: '/article',
+    component: () => import('./pages/Frontend/Article/Index.vue'),
+  },
+  {
+    path: '/article/details',
+    component: () => import('./pages/Frontend/Article/Details.vue')
+  },
+  {
+    path: "/:pathMatch(.*)",
+    redirect: '/', // 重定向到首页
+  }
   // {
   //   path: '/about',
   //   component: () => import('./pages/About.vue')

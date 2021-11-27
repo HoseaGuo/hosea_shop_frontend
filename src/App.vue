@@ -1,3 +1,4 @@
+<script lang="tsx">
 export default {
   setup() {
     return () => (
@@ -9,3 +10,4 @@ export default {
     );
   },
 };
+</script>

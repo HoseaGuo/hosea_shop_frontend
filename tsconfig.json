@@ -10,33 +10,20 @@
     "resolveJsonModule": true,
     "noImplicitAny": false,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "vite/client"
-    ],
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@utils/*": [
-        "src/utils/*"
-      ],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"]
     },
     "plugins": [
       {
         "name": "typescript-styled-plugin",
-        "tags": [
-          
-        ]
+        "tags": []
       }
     ]
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
