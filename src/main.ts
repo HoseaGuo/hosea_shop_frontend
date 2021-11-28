@@ -2,8 +2,9 @@
 import App from './App.vue'
 import routes from './routes'
 import viteSSR from 'vite-ssr'
-// 重置样式
+// 样式
 import './styles/reset.scss'
+import './styles/public.scss'
 // elementui引入
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'

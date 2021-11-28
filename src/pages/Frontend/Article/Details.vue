@@ -1,145 +1,252 @@
 <template>
   <div class="article">
-    <div class="bg"></div>
-    <div class="page-roll">
-      <div class="page-roll-head"></div>
-      <div class="page-roll-bottom"></div>
-      <div class="body">
-        <h1>美国“黑手”伸向全球芯片产业（环球热点）</h1>
+    <div class="article-top">
+      <div class="public-container wing-blank">
+        <div class="article-top_info">
+          <h1>如何健康有效地减肥？</h1>
+          <p>Posted by Gityuan on October 19, 2019</p>
+          <div class="tags"><span>健康</span><span>生活</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="article-body">
+      <div class="public-container wing-blank">
         <div class="article-content">
-          <!-- <div class="col col-1 fl">
-            <div class="author cf">本报记者&nbsp;&nbsp;林子涵</div>
-            <div class="channel cf">
-              <div class="col-1-1 fl">
-                2021年11月27日05:05 | 来源：
-                <a
-                  href="http://paper.people.com.cn/rmrbhwb/html/2021-11/27/content_25890909.htm"
-                  target="_blank"
-                >人民网－人民日报海外版</a>
-              </div>
-              <div class="col-1-2 fr">
-                <span class="rm_type">
-                  <img src="/img/2020wbc/imgs/icon_type.png" alt />
-                  <i>小字号</i>
-                </span>
-              </div>
-            </div>
-            <div class="rm_txt_con cf">
-              <div class="bza">
-                <span></span>
-                <p></p>
-              </div>
-              <div class="box_pic"></div>
-              <p
-                style="text-indent: 2em;"
-              >美国政府近期以“提高供应链透明度”等为由，要求全球主要芯片制造企业提交核心商业数据，甚至有意动用美国《国防生产法》等国家安全法案，强迫他国企业交出“底牌”。</p>
-              <p
-                style="text-indent: 2em;"
-              >在全球“芯片荒”愈演愈烈的当下，美国妄用国家力量夺取半导体供应链机密，引发国际舆论哗然。专家指出，美国此举意在遏止自身先进制造业下滑趋势，重构以美国为主导的全球半导体供应链，围堵中国芯片及其他高科技产业发展。长此以往，必将扰乱国际供应链秩序，阻碍技术创新和产业升级。</p>
-              <p style="text-indent: 2em;">
-                <strong>不择手段——</strong>
+          <div class="RichContent-inner">
+            <span
+              class="RichText ztext CopyrightRichText-richText css-hnrfcf"
+              options="[object Object]"
+              itemprop="text"
+              ><p data-pid="qoX_tW5z">
+                我之前在知乎上发表过两篇文章，贴了些自己的图，但是发现有些微商团队竟然拿我的照片去做各种减肥产品！着实让人有点气愤！所以我决定写一篇关于自己怎么减肥的帖子，让大家别被这些可恶的骗子给骗了！
               </p>
-              <p style="text-indent: 2em;">
-                <strong>强索商业机密&nbsp;胁迫在美建厂</strong>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="502"
+                    data-rawwidth="670"
+                    src="https://pica.zhimg.com/50/372ee65e445d94f52991bd9e4e43863f_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="670"
+                    data-original="https://pic3.zhimg.com/372ee65e445d94f52991bd9e4e43863f_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="502"
+                  data-rawwidth="670"
+                  src="https://pica.zhimg.com/80/372ee65e445d94f52991bd9e4e43863f_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="670"
+                  data-original="https://pic3.zhimg.com/372ee65e445d94f52991bd9e4e43863f_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pica.zhimg.com/50/372ee65e445d94f52991bd9e4e43863f_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="zeJEWHiM">减肥前的照片。</p>
+              <p data-pid="4z2wJy0v">
+                减肥前我的体重达到130+,非常可怕的数字。现在想起来。都是高考那会我妈给我补的，哎，那时候真的很胖。
               </p>
-              <p
-                style="text-indent: 2em;"
-              >美国商务部和白宫国家经济委员会9月23日召集半导体行业人士开会讨论供应链问题。当天，美商务部发出通知，要求半导体供应链企业在45天内“自愿”提供相关信息，包括库存、产能、供货周期、客户信息等26项核心数据。信息征集对象覆盖整个半导体供应链，包括半导体材料和设备供应商、芯片设计和制造企业、分销中间商和终端用户等。</p>
-              <p
-                style="text-indent: 2em;"
-              >据统计，台积电当前占全球高端芯片产能达到58%，三星占18%。二者交出数据，意味着全球高端芯片订单数据在美国政府面前暴露无遗。《韩国经济新闻》指出，披露核心信息将公开企业的半导体技术水平，可能令企业在议价过程中处于不利地位。《日本经济新闻》称，台积电、三星和英特尔这3家尖端半导体企业正在展开激烈竞争。在此情况下，企业对信息管理工作尤为敏感。非美国企业担心，内部信息可能流向与美国政府关系密切的竞争对手美国英特尔公司。韩国《韩民族日报》更刊发社论直言，美方的要求已达到侵害韩国经济主权的水平，严重损害两国互信，对美国谋求建立的技术同盟也无帮助。</p>
-              <p
-                style="text-indent: 2em;"
-              >针对外界质疑，美国商务部长雷蒙多称，如果企业不交，将发动《国防生产法》等强制措施。该法案由美国国会于1950年朝鲜战争时期批准颁布，旨在紧急状态时准许美国联邦政府直接指挥工业生产，储备战时物资。</p>
-              <p
-                style="text-indent: 2em;"
-              >在美国施压下，台积电、三星等企业最终“服软”。美国政府网站数据显示，截至11月8日，70多家企业已向美国商务部提交半导体供应链相关信息，其中包括亚马逊、思科、美光科技、台积电、联华电子、韩国SK海力士、日本索尼半导体解决方案等知名厂商。</p>
-              <p
-                style="text-indent: 2em;"
-              >强索数据之外，美国还力推“半导体供应链回流美国”。据美国消费者新闻与商业频道报道，今年6月，美国参议院通过了一项2500亿美元的《美国创新与竞争法案》，其中约520亿美元用于资助半导体研究、设计和制造。路透社表示，该专项基金将用于补贴英特尔、台积电、三星等企业在美国的工厂。《纽约时报》称，自美国前总统特朗普执政时起，美国就试图迫使芯片制造厂商回到美国，随着台积电今年宣布在美国建立芯片工厂，这项政策正在宣告胜利。</p>
-              <p
-                style="text-indent: 2em;"
-              >据《华尔街日报》报道，经过与美国政府部门接洽，台积电决定在美国亚利桑那州建厂，三星也计划在美国得克萨斯州投入170亿美元建厂并于2024年投产。但显然赴美建厂并不符合这些企业的最大利益。台积电董事长刘德音接受美《时代》周刊采访时承认，在美国建厂是由于“政治驱动”，“成本远高于台积电预期”。台积电本计划未来3年内投资1000亿美元用于扩张产能，但“越看，越觉得还不够。”同时，在美国本土招到合格的技术人员和工人也存在困难。他表示，“半导体本地化不会增加供应链的弹性”，甚至可能“降低弹性”。</p>
-              <p style="text-indent: 2em;">
-                <strong>别有用心——</strong>
+              <p data-pid="EU45uvf4">
+                看过我另两篇文章的人都知道我贴过好多图了，所以这张图片少贴点。分享一下自己的减肥历程吧。
               </p>
-              <p style="text-indent: 2em;">
-                <strong>构建“芯片霸权”&nbsp;意图以“芯”遏华</strong>
+              <p data-pid="f1Q3xOY9">
+                减肥试过很多次，但是每次坚持个一个月瘦了一两斤就放弃了。其实，说到底，能不能瘦，就看你，意志力够不够坚强。
               </p>
-              <p
-                style="text-indent: 2em;"
-              >数十年来，全球芯片制造产能持续向亚洲转移。国际半导体产业协会数据显示，截至2020年，亚洲占全球芯片产能的79%，美国占全球芯片产能的12%，远低于1990年的37%。</p>
-              <p
-                style="text-indent: 2em;"
-              >美国商务部副部长唐·格雷夫斯承认，当前美国半导体行业面临两大危机，一是半导体供应短缺扰乱了汽车、消费电子等多个关键行业，造成企业裁员和经济复苏放缓；二是美国在半导体供应链的“长期领导力”面临威胁，过去20年美国占全球半导体生产的比重大幅下滑。</p>
-              <p
-                style="text-indent: 2em;"
-              >北京大学美国研究中心主任王勇对本报记者指出，美国借助其经济、科技实力及政治影响力，强索他国半导体关键数据，虽然冠以“增加供应链弹性”的名义，但本质目的在于掌控全球供应链，构建美国芯片霸权。同时，美国还有意将芯片“武器化”，控制他国命脉、威胁他国产业安全。</p>
-              <p
-                style="text-indent: 2em;"
-              >韩国《每日经济新闻》近日以“美欲强占半导体供应链，拜登版‘美国优先’启动”为题报道，指出美国的真正目的是命令半导体厂商优先向美国供应半导体，保护美国科技和汽车产业。美国赤裸裸保护本土产业的行为，让他国企业陷入困境。</p>
-              <p
-                style="text-indent: 2em;"
-              >中国社会科学院世界经济与政治研究所研究员徐秀军表示，美国的一系列动作旨在巩固高科技领域领先优势和控制产业链下游重点产业，从而维持全球供应链上其他国家对其不对称依赖关系，并将其他国家锁定在产业链的中低端。美国动用国家力量夺取商业机密，试图全面掌握其他国家重要技术和重要产品研发进展，了解其生产、营收和客户信息，并辅以所谓审查手段限制和打击这些企业，为其国内芯片企业提供有利的竞争环境，从而提升美国本土的芯片制造能力和国际地位。</p>
-              <p
-                style="text-indent: 2em;"
-              >早在今年2月24日，拜登就签署总统令，要求100天内调整半导体、高容量电池等4个重点品类的供应链，意在构建稳定的采购体制。《日本经济新闻》称，该总统令针对中国的意味浓厚，美国力争在重点产品上摆脱对中国供应链的依赖。</p>
-              <p
-                style="text-indent: 2em;"
-              >中国科技崛起显然令美国感到焦虑。前有针对中兴、华为的禁令，后有无故吊销中国电信在美牌照，如今，美国连美企、韩企在华生产经营活动都要施加干扰。</p>
-              <p
-                style="text-indent: 2em;"
-              >据彭博社报道，出于“国家安全考虑”，拜登政府近期拒绝了英特尔公司在中国的增产计划。英特尔曾提议在中国成都的一家工厂生产硅晶片，遭到拜登政府的强烈反对。此外，韩国半导体企业SK海力士近期计划在中国无锡半导体工厂引进荷兰阿斯麦公司的极紫外光刻机，遭白宫阻挠，理由是“担心中国或将美国及其盟友技术运用于提高军事能力，产生安全威胁”。</p>
-              <p
-                style="text-indent: 2em;"
-              >复旦大学网络空间国际治理研究基地主任沈逸指出，当前，美国本土先进制造能力持续下降，在芯片先进制程等方面技术难以取得突破。同时，在中美科技博弈背景下，美国执意遏制中国芯片产业发展，阻断了向中国发售制造芯片的相关设备，打乱产能节奏，干扰全球供应链。此举叠加新冠肺炎疫情影响，加剧了全球芯片断供。多重刺激下，美国急于激励本国芯片制造业，提升本土企业科研能力，实现芯片先进制程和产能上的飞跃，巩固美国供应链安全。</p>
-              <p
-                style="text-indent: 2em;"
-              >“自特朗普政府以来，美国越来越多地和中国在以芯片为代表的先进制造业领域发生摩擦，甚至不断突破美国自己设置的行业规则和基本商业底线，这反映了美国当前面临的一项深刻困境，即美国过去重视金融化，导致制造业严重空心化。在美国看来，除非采取霸道措施进行拦截，否则产业能力向中国转移几乎就是定势。”沈逸说。</p>
-              <p style="text-indent: 2em;">
-                <strong>害人害己——</strong>
+              <p data-pid="AVPmOXrA">
+                我下决心减肥的理由其实很简单。有一次暑假后，发现同学一个暑假瘦了十斤，当时很震惊。后来跟她去逛街，所有我喜欢的衣服她都能穿得进，我却穿不了。当时一起上法语课，我们都会讨论各自暗恋的那个男生。但是我显得就很没底气！因为我胖啊，因为我不漂亮。
               </p>
-              <p style="text-indent: 2em;">
-                <strong>干扰产业秩序&nbsp;阻碍技术创新</strong>
+              <p data-pid="3HV9OvNg">
+                所以，我一下就决定要减肥，这次要认真减肥。我要我喜欢的衣服穿得进，喜欢的男生追得到！
               </p>
-              <p
-                style="text-indent: 2em;"
-              >美国政府无理打压别国高科技企业早已恶迹昭著，其中最典型的是法国阿尔斯通公司的遭遇。2013年，美国以违反《反海外腐败法》为由逮捕该公司高管弗雷德里克·皮耶鲁齐，随后对他提起诉讼并对阿尔斯通公司处以7.72亿美元巨额罚款。在美方巨大压力下，该公司最终将其电力业务出售给主要竞争对手美国通用电气公司。</p>
-              <p
-                style="text-indent: 2em;"
-              >王勇认为，经济全球化发展的重要成果之一就是形成了全球供应链，各国产业在全球化过程中形成了上下游分明的垂直分工体系，构成国际贸易的重要组成部分。然而，美国沿着经济、科技问题政治化操弄的思路，企图重组全球供应链，搞自己团团伙伙的‘小圈子’，加强美国对关键技术的控制，企图建立一个去中国化、去俄罗斯化的供应链体系，实际上打乱了全球供应链的分工布局，对全球正常贸易往来、国际贸易秩序造成极大破坏。</p>
-              <p
-                style="text-indent: 2em;"
-              >沈逸指出，美国动用国家力量为本土企业扫清竞争障碍，最多只能为美国产业升级换代、重振实体制造业争取临时性的时间窗口。但美国动辄挥舞大棒，把使用国家强权视为常态，最终将带来反作用，使本土企业产生惰性，降低美国产业升级换代的自主动力。</p>
-              <p
-                style="text-indent: 2em;"
-              >“在美国主导的全球供应链上，他国企业随时面临‘定时炸弹’爆炸的风险。长此以往，国际社会必将加深对美国的不信任感，美国在国际体系中将被边缘化。当中国芯片自主制造能力取得实质性突破后，其他国家将倾向于和中国合作，避免与美国交易。”沈逸说。</p>
-              <p
-                style="text-indent: 2em;"
-              >“由于很多芯片企业同中国有较为密切的商业往来，通过索取这些企业的相关数据，有利于美国有针对性地采取措施对中国相关企业进行精准打击。但从长远看，这也将进一步推动中国半导体行业和科技企业的自主创新和自立自强。”徐秀军说。</p>
-              <p
-                style="text-indent: 2em;"
-              >“美国将如何使用强索到的半导体行业数据，目前尚不清楚。但美国把中国视作竞争对手，必然会据此对中国经济产业的发展出手遏制。不过，这也将倒逼中国半导体产业和相关科技产业的发展，促使中国加大对关键技术的投入，突破‘卡脖子’的技术瓶颈。未来，中国的芯片技术发展将有机会获得更大的市场机遇。”王勇说。</p>
-              <div class="zdfy clearfix"></div>
-              <center>
-                <table border="0" align="center" width="40%">
-                  <tbody>
-                    <tr></tr>
-                  </tbody>
-                </table>
-              </center>
-              <div class="box_pic"></div>
-              <div class="edit cf">(责编：牛镛、燕勐)</div>
-              <p class="paper_num">
-                <em class="section-common-share-wrap">
-                  分享让更多人看到
-                  <i class="btn_share_common">
-                    <img src="/img/2020wbc/imgs/share.png" alt style />
-                  </i>
-                </em>
+              <p data-pid="d7oNe2Wo">
+                其实我根本没上网搜索过什么减肥教程。我刚开始只知道少吃多运动肯定能瘦。我从来没想过自己可以瘦这么多，或许从来没有给自己一个很大的压力和目标，就是瘦一点瘦一点就很开心。
               </p>
-            </div>
-          </div>-->
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="1590"
+                    data-rawwidth="1152"
+                    src="https://pic2.zhimg.com/50/93525adae9a3d6fa89e9c22578e98ce2_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="1152"
+                    data-original="https://pic1.zhimg.com/93525adae9a3d6fa89e9c22578e98ce2_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="1590"
+                  data-rawwidth="1152"
+                  src="https://pic2.zhimg.com/80/93525adae9a3d6fa89e9c22578e98ce2_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="1152"
+                  data-original="https://pic1.zhimg.com/93525adae9a3d6fa89e9c22578e98ce2_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pic2.zhimg.com/50/93525adae9a3d6fa89e9c22578e98ce2_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="Lu8HEOf6">
+                这是现在的照片，虽然达不到很多女孩子期望很瘦的样子。但对我来说，我觉得我现在很健康，不胖，我已经满足了。我追求的并不是很瘦的状态，我只希望我的生活可以吃各种好吃的，对我来说，吃是一种幸福。不过吃完后一定要配合运动。
+              </p>
+              <p data-pid="lPbRiOCb">
+                可能我的减肥方式并不是什么专业的，我对减肥的理解也并不专业。我只是以自己的亲身体验来解答很多人问我的问题。关于怎么减肥。对于现在很多人靠药物或者什么各种产品减肥，其实我不太建议，可能现在有功效，可是它对你体内产生的影响谁也不能预料。所以我只建议运动加合理饮食来瘦身。
+              </p>
+              <p data-pid="kT13gCm_">
+                先来说明一下我花了多久瘦了三十来斤。半年的时间，瘦了三十斤，再花半年的时间来维持体重。因为我怕反弹，我怕我半年的努力全废了。所以，实力来讲，整整花了一年的时间。我把自己变成现在这个样子。妹子们，千万别觉得自己瘦了就可以随便吃了，你要把自己的体质维持住，所以要一点一点慢慢开始吃。
+              </p>
+              <p data-pid="V8v2C7j9">
+                关于饮食，很多人问我一天的食谱怎么安排。其实我吃的东西一点都不特别。每个人都可以做到。不过一定要记住的一点是，低热量。女人随时要记住，管住自己的嘴巴，保持自己的身材，这是我减肥后最大的感受。
+              </p>
+              <p data-pid="iTKpfFow">
+                早餐:我把所有的希望寄托在早餐上，因为由于前一天晚上睡前会很饿，所以每天睡前都要想着第二天早饭吃什么。我会给自己准备一个水煮土鸡蛋，六颗大红枣，两个小的紫薯，两个小兔子包，一杯现磨豆浆。早餐的食量非常大，营养也不错。吃完就会有一种满足感。十点左右吃一个苹果(每个人选择不同)因为我从初中就开始养成了每天一定要吃苹果的习惯，而且早上吃水果是最好的吸收时间。
+              </p>
+              <p data-pid="02AxLljj">
+                中饭:中饭前吃一根香蕉，为了让自己有饱腹感，中饭就可以少吃点。我基本中饭吃半碗饭，菜都少油。其实中饭吃饱也没关系，只是我对自己比较苛刻。
+              </p>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="5184"
+                    data-rawwidth="3456"
+                    src="https://pic2.zhimg.com/50/d2ebf40df7e3f5be4a5f967751b0d6cf_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="3456"
+                    data-original="https://pic2.zhimg.com/d2ebf40df7e3f5be4a5f967751b0d6cf_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="5184"
+                  data-rawwidth="3456"
+                  src="https://pic2.zhimg.com/80/d2ebf40df7e3f5be4a5f967751b0d6cf_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="3456"
+                  data-original="https://pic2.zhimg.com/d2ebf40df7e3f5be4a5f967751b0d6cf_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pic2.zhimg.com/50/d2ebf40df7e3f5be4a5f967751b0d6cf_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="gbv_jbNy">
+                戒掉一切零食，饮料，朋友聚餐的时候我也是坐着看，时刻提醒自己要克制。我认为减肥关键的一个东西就是水。每天要喝大量的水，我真的是做到一天七大杯水。早上起来空腹的时候一定要喝一杯。晚上就不建议多喝。
+              </p>
+              <p data-pid="-iLKNbU8">
+                下午肚子饿了就补充一个水果，我把水果作为我的零食，当然也不能吃太多的水果，毕竟有些水果也属于高热量，比如榴莲。
+              </p>
+              <p data-pid="fk7EwrsA">
+                晚饭:晚饭基本五点解决，一碗粥或者一根玉米。其实根本不满足，但是我就是提醒自己晚上不能多吃。晚饭后不再进食，饿了就开始喝水充饥。基本八点就会开始饿了。所以我都强迫自己十点就睡了。所以我养成了早睡的习惯。
+              </p>
+              <p data-pid="EsHCeVKK">
+                关于运动:晚饭后一小时，我就会做一集郑多燕减肥操。我做的事第一套，全身运动。就这样，郑多燕做了一年。后来专门为了瘦腿，做完郑多燕还去跑楼梯。
+              </p>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="1248"
+                    data-rawwidth="832"
+                    src="https://pic3.zhimg.com/50/fa0c426ca12f484216806dfe9d4ec516_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="832"
+                    data-original="https://pic1.zhimg.com/fa0c426ca12f484216806dfe9d4ec516_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="1248"
+                  data-rawwidth="832"
+                  src="https://pic3.zhimg.com/80/fa0c426ca12f484216806dfe9d4ec516_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="832"
+                  data-original="https://pic1.zhimg.com/fa0c426ca12f484216806dfe9d4ec516_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pic3.zhimg.com/50/fa0c426ca12f484216806dfe9d4ec516_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="zj3D8t3i">
+                晚上早睡早上就会早起。我基本七点就会自觉起床，然后开始吃早饭，九点前一定会去上一趟厕所。那段时间吃的很少，但是每天排出的都很多。我觉得很多是身体的毒素和废物。每天都感觉一身轻。这种感觉很赞。
+              </p>
+              <p data-pid="EAdar3WB">
+                当然一天当中你可以加点别的吃的，我偶尔会吃酸奶。
+              </p>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="2043"
+                    data-rawwidth="3070"
+                    src="https://pica.zhimg.com/50/1cb54b8e338473432239e63153de749b_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="3070"
+                    data-original="https://pica.zhimg.com/1cb54b8e338473432239e63153de749b_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="2043"
+                  data-rawwidth="3070"
+                  src="https://pica.zhimg.com/80/1cb54b8e338473432239e63153de749b_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="3070"
+                  data-original="https://pica.zhimg.com/1cb54b8e338473432239e63153de749b_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pica.zhimg.com/50/1cb54b8e338473432239e63153de749b_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="IvTndpbX">
+                很多人说我瘦了后很冷的样子不爱笑。其实不是的，只是我有虎牙，笑了觉得自己不好看。生活中我很爱笑，因为我很珍惜现在的生活，而且我觉得自己现在很开心。
+              </p>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="1248"
+                    data-rawwidth="832"
+                    src="https://pic3.zhimg.com/50/30a8c4a5be047f2b9334f24f2c25f573_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="832"
+                    data-original="https://pic2.zhimg.com/30a8c4a5be047f2b9334f24f2c25f573_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="1248"
+                  data-rawwidth="832"
+                  src="https://pic3.zhimg.com/80/30a8c4a5be047f2b9334f24f2c25f573_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="832"
+                  data-original="https://pic2.zhimg.com/30a8c4a5be047f2b9334f24f2c25f573_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pic3.zhimg.com/50/30a8c4a5be047f2b9334f24f2c25f573_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="7JtKY6vE">
+                虽然我不是专业减肥师，但是希望这篇帖子可以帮到想减肥的朋友。不希望自己的照片被各种减肥产品盗用。不希望别人受骗！
+              </p>
+              <p data-pid="1rwnpPJn">减肥后，是一个新的人生。</p>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="2043"
+                    data-rawwidth="3070"
+                    src="https://pic3.zhimg.com/50/6f5656ba05fd9226d425e26c02c5484d_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="3070"
+                    data-original="https://pic3.zhimg.com/6f5656ba05fd9226d425e26c02c5484d_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="2043"
+                  data-rawwidth="3070"
+                  src="https://pic3.zhimg.com/80/6f5656ba05fd9226d425e26c02c5484d_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="3070"
+                  data-original="https://pic3.zhimg.com/6f5656ba05fd9226d425e26c02c5484d_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pic3.zhimg.com/50/6f5656ba05fd9226d425e26c02c5484d_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <figure>
+                <noscript
+                  ><img
+                    data-rawheight="1136"
+                    data-rawwidth="1136"
+                    src="https://pic3.zhimg.com/50/1c5f78f9fb153190b0347dbd67a00513_720w.jpg?source=1940ef5c"
+                    class="origin_image zh-lightbox-thumb"
+                    width="1136"
+                    data-original="https://pic1.zhimg.com/1c5f78f9fb153190b0347dbd67a00513_r.jpg?source=1940ef5c" /></noscript
+                ><img
+                  data-rawheight="1136"
+                  data-rawwidth="1136"
+                  src="https://pic3.zhimg.com/80/1c5f78f9fb153190b0347dbd67a00513_720w.jpg?source=1940ef5c"
+                  class="origin_image zh-lightbox-thumb lazy"
+                  width="1136"
+                  data-original="https://pic1.zhimg.com/1c5f78f9fb153190b0347dbd67a00513_r.jpg?source=1940ef5c"
+                  data-actualsrc="https://pic3.zhimg.com/50/1c5f78f9fb153190b0347dbd67a00513_720w.jpg?source=1940ef5c"
+                  data-lazy-status="ok"
+                />
+              </figure>
+              <p data-pid="ZGSWC3Lx">
+                我是一个称职的铲屎官。所以结尾要放上我家老大的照片。哈哈哈。
+              </p></span
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -151,66 +258,39 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .article {
-  .bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: center no-repeat;
-    background-image: url("@assets/bedroom.jpg");
-    z-index: -1;
+  min-height: 100vh;
+  background-color: #e9ebfe;
+  .article-top {
+    overflow: hidden;
+    height: 300px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    .article-top_info {
+      padding: 0 20px;
+      .tags {
+        span {
+          margin-right: 10px;
+          display: inline-block;
+          height: 24px;
+          line-height: 22px;
+          padding: 0 6px;
+          border-radius: 20px;
+          border: 1px solid #fff;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
   }
-  .page-roll {
-    margin: 50px auto 30px;
-    max-width: 1000px;
-    /* background: rgba(255, 255, 255, 0.8); */
-    /* padding: 80px 10px; */
-    /* border-radius: 10px; */
-    /* box-shadow: 0 0 14px #c7c7c7; */
-    position: relative;
-    .page-roll-head,
-    .page-roll-bottom {
-      position: absolute;
-      height: 80px;
-      left: 0;
-      top: 0;
-      right: 0;
-      background: linear-gradient(to bottom, #dcbc96, #e6cdaf, #dcbc96);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
-      &:before,
-      &:after {
-        position: absolute;
-        /* z-index: -1; */
-        content: "";
-        width: 12px;
-        height: 100%;
-        left: -6px;
-        top: 0;
-        background: inherit;
-        border-radius: 50%;
-      }
-      &:after {
-        left: auto;
-        right: -6px;
-      }
+  .article-body {
+    padding: 40px 0;
+    img {
+      max-width: 100%;
     }
-    .page-roll-bottom {
-      top: auto;
-      bottom: 0;
-    }
-    .body {
-      padding: 80px 20px;
-      /* border: 4px solid rgb(230 205 175 / 78%); */
-      background-color: rgb(255 242 219 / 95%);
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-      h1 {
-        text-align: center;
-        margin: 50px 0;
-      }
-      .article-content {
-        min-height: 500px;
-      }
+    * {
+      line-height: initial;
     }
   }
 }
