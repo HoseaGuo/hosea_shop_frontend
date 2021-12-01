@@ -1,11 +1,17 @@
 <template>
-  <div class="article">
-    <div class="article-top">
-      <div class="public-container wing-blank">
-        <div class="article-top_info">
-          <h1>如何健康有效地减肥？</h1>
-          <p>Posted by Gityuan on October 19, 2019</p>
-          <div class="tags"><span>健康</span><span>生活</span></div>
+  <div class="page">
+    <div class="header">
+      <div class="public-container wing-blank"></div>
+    </div>
+    <div class="article-title sticky-top">
+      <h1 class="public-container wing-blank">如何健康有效地减肥？</h1>
+    </div>
+    <div class="article-info">
+      <div class="public-container">
+        <p>Posted by Gityuan on October 19, 2019</p>
+        <div class="tags">
+          <span>健康</span>
+          <span>生活</span>
         </div>
       </div>
     </div>
@@ -17,19 +23,22 @@
               class="RichText ztext CopyrightRichText-richText css-hnrfcf"
               options="[object Object]"
               itemprop="text"
-              ><p data-pid="qoX_tW5z">
-                我之前在知乎上发表过两篇文章，贴了些自己的图，但是发现有些微商团队竟然拿我的照片去做各种减肥产品！着实让人有点气愤！所以我决定写一篇关于自己怎么减肥的帖子，让大家别被这些可恶的骗子给骗了！
-              </p>
+            >
+              <p
+                data-pid="qoX_tW5z"
+              >我之前在知乎上发表过两篇文章，贴了些自己的图，但是发现有些微商团队竟然拿我的照片去做各种减肥产品！着实让人有点气愤！所以我决定写一篇关于自己怎么减肥的帖子，让大家别被这些可恶的骗子给骗了！</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="502"
                     data-rawwidth="670"
                     src="https://pica.zhimg.com/50/372ee65e445d94f52991bd9e4e43863f_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="670"
-                    data-original="https://pic3.zhimg.com/372ee65e445d94f52991bd9e4e43863f_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic3.zhimg.com/372ee65e445d94f52991bd9e4e43863f_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="502"
                   data-rawwidth="670"
                   src="https://pica.zhimg.com/80/372ee65e445d94f52991bd9e4e43863f_720w.jpg?source=1940ef5c"
@@ -41,34 +50,28 @@
                 />
               </figure>
               <p data-pid="zeJEWHiM">减肥前的照片。</p>
-              <p data-pid="4z2wJy0v">
-                减肥前我的体重达到130+,非常可怕的数字。现在想起来。都是高考那会我妈给我补的，哎，那时候真的很胖。
-              </p>
-              <p data-pid="EU45uvf4">
-                看过我另两篇文章的人都知道我贴过好多图了，所以这张图片少贴点。分享一下自己的减肥历程吧。
-              </p>
-              <p data-pid="f1Q3xOY9">
-                减肥试过很多次，但是每次坚持个一个月瘦了一两斤就放弃了。其实，说到底，能不能瘦，就看你，意志力够不够坚强。
-              </p>
-              <p data-pid="AVPmOXrA">
-                我下决心减肥的理由其实很简单。有一次暑假后，发现同学一个暑假瘦了十斤，当时很震惊。后来跟她去逛街，所有我喜欢的衣服她都能穿得进，我却穿不了。当时一起上法语课，我们都会讨论各自暗恋的那个男生。但是我显得就很没底气！因为我胖啊，因为我不漂亮。
-              </p>
-              <p data-pid="3HV9OvNg">
-                所以，我一下就决定要减肥，这次要认真减肥。我要我喜欢的衣服穿得进，喜欢的男生追得到！
-              </p>
-              <p data-pid="d7oNe2Wo">
-                其实我根本没上网搜索过什么减肥教程。我刚开始只知道少吃多运动肯定能瘦。我从来没想过自己可以瘦这么多，或许从来没有给自己一个很大的压力和目标，就是瘦一点瘦一点就很开心。
-              </p>
+              <p data-pid="4z2wJy0v">减肥前我的体重达到130+,非常可怕的数字。现在想起来。都是高考那会我妈给我补的，哎，那时候真的很胖。</p>
+              <p data-pid="EU45uvf4">看过我另两篇文章的人都知道我贴过好多图了，所以这张图片少贴点。分享一下自己的减肥历程吧。</p>
+              <p data-pid="f1Q3xOY9">减肥试过很多次，但是每次坚持个一个月瘦了一两斤就放弃了。其实，说到底，能不能瘦，就看你，意志力够不够坚强。</p>
+              <p
+                data-pid="AVPmOXrA"
+              >我下决心减肥的理由其实很简单。有一次暑假后，发现同学一个暑假瘦了十斤，当时很震惊。后来跟她去逛街，所有我喜欢的衣服她都能穿得进，我却穿不了。当时一起上法语课，我们都会讨论各自暗恋的那个男生。但是我显得就很没底气！因为我胖啊，因为我不漂亮。</p>
+              <p data-pid="3HV9OvNg">所以，我一下就决定要减肥，这次要认真减肥。我要我喜欢的衣服穿得进，喜欢的男生追得到！</p>
+              <p
+                data-pid="d7oNe2Wo"
+              >其实我根本没上网搜索过什么减肥教程。我刚开始只知道少吃多运动肯定能瘦。我从来没想过自己可以瘦这么多，或许从来没有给自己一个很大的压力和目标，就是瘦一点瘦一点就很开心。</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="1590"
                     data-rawwidth="1152"
                     src="https://pic2.zhimg.com/50/93525adae9a3d6fa89e9c22578e98ce2_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="1152"
-                    data-original="https://pic1.zhimg.com/93525adae9a3d6fa89e9c22578e98ce2_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic1.zhimg.com/93525adae9a3d6fa89e9c22578e98ce2_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="1590"
                   data-rawwidth="1152"
                   src="https://pic2.zhimg.com/80/93525adae9a3d6fa89e9c22578e98ce2_720w.jpg?source=1940ef5c"
@@ -79,34 +82,36 @@
                   data-lazy-status="ok"
                 />
               </figure>
-              <p data-pid="Lu8HEOf6">
-                这是现在的照片，虽然达不到很多女孩子期望很瘦的样子。但对我来说，我觉得我现在很健康，不胖，我已经满足了。我追求的并不是很瘦的状态，我只希望我的生活可以吃各种好吃的，对我来说，吃是一种幸福。不过吃完后一定要配合运动。
-              </p>
-              <p data-pid="lPbRiOCb">
-                可能我的减肥方式并不是什么专业的，我对减肥的理解也并不专业。我只是以自己的亲身体验来解答很多人问我的问题。关于怎么减肥。对于现在很多人靠药物或者什么各种产品减肥，其实我不太建议，可能现在有功效，可是它对你体内产生的影响谁也不能预料。所以我只建议运动加合理饮食来瘦身。
-              </p>
-              <p data-pid="kT13gCm_">
-                先来说明一下我花了多久瘦了三十来斤。半年的时间，瘦了三十斤，再花半年的时间来维持体重。因为我怕反弹，我怕我半年的努力全废了。所以，实力来讲，整整花了一年的时间。我把自己变成现在这个样子。妹子们，千万别觉得自己瘦了就可以随便吃了，你要把自己的体质维持住，所以要一点一点慢慢开始吃。
-              </p>
-              <p data-pid="V8v2C7j9">
-                关于饮食，很多人问我一天的食谱怎么安排。其实我吃的东西一点都不特别。每个人都可以做到。不过一定要记住的一点是，低热量。女人随时要记住，管住自己的嘴巴，保持自己的身材，这是我减肥后最大的感受。
-              </p>
-              <p data-pid="iTKpfFow">
-                早餐:我把所有的希望寄托在早餐上，因为由于前一天晚上睡前会很饿，所以每天睡前都要想着第二天早饭吃什么。我会给自己准备一个水煮土鸡蛋，六颗大红枣，两个小的紫薯，两个小兔子包，一杯现磨豆浆。早餐的食量非常大，营养也不错。吃完就会有一种满足感。十点左右吃一个苹果(每个人选择不同)因为我从初中就开始养成了每天一定要吃苹果的习惯，而且早上吃水果是最好的吸收时间。
-              </p>
-              <p data-pid="02AxLljj">
-                中饭:中饭前吃一根香蕉，为了让自己有饱腹感，中饭就可以少吃点。我基本中饭吃半碗饭，菜都少油。其实中饭吃饱也没关系，只是我对自己比较苛刻。
-              </p>
+              <p
+                data-pid="Lu8HEOf6"
+              >这是现在的照片，虽然达不到很多女孩子期望很瘦的样子。但对我来说，我觉得我现在很健康，不胖，我已经满足了。我追求的并不是很瘦的状态，我只希望我的生活可以吃各种好吃的，对我来说，吃是一种幸福。不过吃完后一定要配合运动。</p>
+              <p
+                data-pid="lPbRiOCb"
+              >可能我的减肥方式并不是什么专业的，我对减肥的理解也并不专业。我只是以自己的亲身体验来解答很多人问我的问题。关于怎么减肥。对于现在很多人靠药物或者什么各种产品减肥，其实我不太建议，可能现在有功效，可是它对你体内产生的影响谁也不能预料。所以我只建议运动加合理饮食来瘦身。</p>
+              <p
+                data-pid="kT13gCm_"
+              >先来说明一下我花了多久瘦了三十来斤。半年的时间，瘦了三十斤，再花半年的时间来维持体重。因为我怕反弹，我怕我半年的努力全废了。所以，实力来讲，整整花了一年的时间。我把自己变成现在这个样子。妹子们，千万别觉得自己瘦了就可以随便吃了，你要把自己的体质维持住，所以要一点一点慢慢开始吃。</p>
+              <p
+                data-pid="V8v2C7j9"
+              >关于饮食，很多人问我一天的食谱怎么安排。其实我吃的东西一点都不特别。每个人都可以做到。不过一定要记住的一点是，低热量。女人随时要记住，管住自己的嘴巴，保持自己的身材，这是我减肥后最大的感受。</p>
+              <p
+                data-pid="iTKpfFow"
+              >早餐:我把所有的希望寄托在早餐上，因为由于前一天晚上睡前会很饿，所以每天睡前都要想着第二天早饭吃什么。我会给自己准备一个水煮土鸡蛋，六颗大红枣，两个小的紫薯，两个小兔子包，一杯现磨豆浆。早餐的食量非常大，营养也不错。吃完就会有一种满足感。十点左右吃一个苹果(每个人选择不同)因为我从初中就开始养成了每天一定要吃苹果的习惯，而且早上吃水果是最好的吸收时间。</p>
+              <p
+                data-pid="02AxLljj"
+              >中饭:中饭前吃一根香蕉，为了让自己有饱腹感，中饭就可以少吃点。我基本中饭吃半碗饭，菜都少油。其实中饭吃饱也没关系，只是我对自己比较苛刻。</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="5184"
                     data-rawwidth="3456"
                     src="https://pic2.zhimg.com/50/d2ebf40df7e3f5be4a5f967751b0d6cf_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="3456"
-                    data-original="https://pic2.zhimg.com/d2ebf40df7e3f5be4a5f967751b0d6cf_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic2.zhimg.com/d2ebf40df7e3f5be4a5f967751b0d6cf_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="5184"
                   data-rawwidth="3456"
                   src="https://pic2.zhimg.com/80/d2ebf40df7e3f5be4a5f967751b0d6cf_720w.jpg?source=1940ef5c"
@@ -117,28 +122,28 @@
                   data-lazy-status="ok"
                 />
               </figure>
-              <p data-pid="gbv_jbNy">
-                戒掉一切零食，饮料，朋友聚餐的时候我也是坐着看，时刻提醒自己要克制。我认为减肥关键的一个东西就是水。每天要喝大量的水，我真的是做到一天七大杯水。早上起来空腹的时候一定要喝一杯。晚上就不建议多喝。
-              </p>
-              <p data-pid="-iLKNbU8">
-                下午肚子饿了就补充一个水果，我把水果作为我的零食，当然也不能吃太多的水果，毕竟有些水果也属于高热量，比如榴莲。
-              </p>
-              <p data-pid="fk7EwrsA">
-                晚饭:晚饭基本五点解决，一碗粥或者一根玉米。其实根本不满足，但是我就是提醒自己晚上不能多吃。晚饭后不再进食，饿了就开始喝水充饥。基本八点就会开始饿了。所以我都强迫自己十点就睡了。所以我养成了早睡的习惯。
-              </p>
-              <p data-pid="EsHCeVKK">
-                关于运动:晚饭后一小时，我就会做一集郑多燕减肥操。我做的事第一套，全身运动。就这样，郑多燕做了一年。后来专门为了瘦腿，做完郑多燕还去跑楼梯。
-              </p>
+              <p
+                data-pid="gbv_jbNy"
+              >戒掉一切零食，饮料，朋友聚餐的时候我也是坐着看，时刻提醒自己要克制。我认为减肥关键的一个东西就是水。每天要喝大量的水，我真的是做到一天七大杯水。早上起来空腹的时候一定要喝一杯。晚上就不建议多喝。</p>
+              <p data-pid="-iLKNbU8">下午肚子饿了就补充一个水果，我把水果作为我的零食，当然也不能吃太多的水果，毕竟有些水果也属于高热量，比如榴莲。</p>
+              <p
+                data-pid="fk7EwrsA"
+              >晚饭:晚饭基本五点解决，一碗粥或者一根玉米。其实根本不满足，但是我就是提醒自己晚上不能多吃。晚饭后不再进食，饿了就开始喝水充饥。基本八点就会开始饿了。所以我都强迫自己十点就睡了。所以我养成了早睡的习惯。</p>
+              <p
+                data-pid="EsHCeVKK"
+              >关于运动:晚饭后一小时，我就会做一集郑多燕减肥操。我做的事第一套，全身运动。就这样，郑多燕做了一年。后来专门为了瘦腿，做完郑多燕还去跑楼梯。</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="1248"
                     data-rawwidth="832"
                     src="https://pic3.zhimg.com/50/fa0c426ca12f484216806dfe9d4ec516_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="832"
-                    data-original="https://pic1.zhimg.com/fa0c426ca12f484216806dfe9d4ec516_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic1.zhimg.com/fa0c426ca12f484216806dfe9d4ec516_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="1248"
                   data-rawwidth="832"
                   src="https://pic3.zhimg.com/80/fa0c426ca12f484216806dfe9d4ec516_720w.jpg?source=1940ef5c"
@@ -149,22 +154,22 @@
                   data-lazy-status="ok"
                 />
               </figure>
-              <p data-pid="zj3D8t3i">
-                晚上早睡早上就会早起。我基本七点就会自觉起床，然后开始吃早饭，九点前一定会去上一趟厕所。那段时间吃的很少，但是每天排出的都很多。我觉得很多是身体的毒素和废物。每天都感觉一身轻。这种感觉很赞。
-              </p>
-              <p data-pid="EAdar3WB">
-                当然一天当中你可以加点别的吃的，我偶尔会吃酸奶。
-              </p>
+              <p
+                data-pid="zj3D8t3i"
+              >晚上早睡早上就会早起。我基本七点就会自觉起床，然后开始吃早饭，九点前一定会去上一趟厕所。那段时间吃的很少，但是每天排出的都很多。我觉得很多是身体的毒素和废物。每天都感觉一身轻。这种感觉很赞。</p>
+              <p data-pid="EAdar3WB">当然一天当中你可以加点别的吃的，我偶尔会吃酸奶。</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="2043"
                     data-rawwidth="3070"
                     src="https://pica.zhimg.com/50/1cb54b8e338473432239e63153de749b_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="3070"
-                    data-original="https://pica.zhimg.com/1cb54b8e338473432239e63153de749b_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pica.zhimg.com/1cb54b8e338473432239e63153de749b_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="2043"
                   data-rawwidth="3070"
                   src="https://pica.zhimg.com/80/1cb54b8e338473432239e63153de749b_720w.jpg?source=1940ef5c"
@@ -175,19 +180,21 @@
                   data-lazy-status="ok"
                 />
               </figure>
-              <p data-pid="IvTndpbX">
-                很多人说我瘦了后很冷的样子不爱笑。其实不是的，只是我有虎牙，笑了觉得自己不好看。生活中我很爱笑，因为我很珍惜现在的生活，而且我觉得自己现在很开心。
-              </p>
+              <p
+                data-pid="IvTndpbX"
+              >很多人说我瘦了后很冷的样子不爱笑。其实不是的，只是我有虎牙，笑了觉得自己不好看。生活中我很爱笑，因为我很珍惜现在的生活，而且我觉得自己现在很开心。</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="1248"
                     data-rawwidth="832"
                     src="https://pic3.zhimg.com/50/30a8c4a5be047f2b9334f24f2c25f573_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="832"
-                    data-original="https://pic2.zhimg.com/30a8c4a5be047f2b9334f24f2c25f573_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic2.zhimg.com/30a8c4a5be047f2b9334f24f2c25f573_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="1248"
                   data-rawwidth="832"
                   src="https://pic3.zhimg.com/80/30a8c4a5be047f2b9334f24f2c25f573_720w.jpg?source=1940ef5c"
@@ -198,20 +205,20 @@
                   data-lazy-status="ok"
                 />
               </figure>
-              <p data-pid="7JtKY6vE">
-                虽然我不是专业减肥师，但是希望这篇帖子可以帮到想减肥的朋友。不希望自己的照片被各种减肥产品盗用。不希望别人受骗！
-              </p>
+              <p data-pid="7JtKY6vE">虽然我不是专业减肥师，但是希望这篇帖子可以帮到想减肥的朋友。不希望自己的照片被各种减肥产品盗用。不希望别人受骗！</p>
               <p data-pid="1rwnpPJn">减肥后，是一个新的人生。</p>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="2043"
                     data-rawwidth="3070"
                     src="https://pic3.zhimg.com/50/6f5656ba05fd9226d425e26c02c5484d_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="3070"
-                    data-original="https://pic3.zhimg.com/6f5656ba05fd9226d425e26c02c5484d_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic3.zhimg.com/6f5656ba05fd9226d425e26c02c5484d_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="2043"
                   data-rawwidth="3070"
                   src="https://pic3.zhimg.com/80/6f5656ba05fd9226d425e26c02c5484d_720w.jpg?source=1940ef5c"
@@ -223,15 +230,17 @@
                 />
               </figure>
               <figure>
-                <noscript
-                  ><img
+                <noscript>
+                  <img
                     data-rawheight="1136"
                     data-rawwidth="1136"
                     src="https://pic3.zhimg.com/50/1c5f78f9fb153190b0347dbd67a00513_720w.jpg?source=1940ef5c"
                     class="origin_image zh-lightbox-thumb"
                     width="1136"
-                    data-original="https://pic1.zhimg.com/1c5f78f9fb153190b0347dbd67a00513_r.jpg?source=1940ef5c" /></noscript
-                ><img
+                    data-original="https://pic1.zhimg.com/1c5f78f9fb153190b0347dbd67a00513_r.jpg?source=1940ef5c"
+                  />
+                </noscript>
+                <img
                   data-rawheight="1136"
                   data-rawwidth="1136"
                   src="https://pic3.zhimg.com/80/1c5f78f9fb153190b0347dbd67a00513_720w.jpg?source=1940ef5c"
@@ -242,10 +251,8 @@
                   data-lazy-status="ok"
                 />
               </figure>
-              <p data-pid="ZGSWC3Lx">
-                我是一个称职的铲屎官。所以结尾要放上我家老大的照片。哈哈哈。
-              </p></span
-            >
+              <p data-pid="ZGSWC3Lx">我是一个称职的铲屎官。所以结尾要放上我家老大的照片。哈哈哈。</p>
+            </span>
           </div>
         </div>
       </div>
@@ -253,45 +260,85 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="tsx">
 export default {};
 </script>
 <style lang="scss" scoped>
-.article {
-  min-height: 100vh;
-  background-color: #e9ebfe;
-  .article-top {
-    overflow: hidden;
-    height: 300px;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    .article-top_info {
-      padding: 0 20px;
-      .tags {
-        span {
-          margin-right: 10px;
-          display: inline-block;
-          height: 24px;
-          line-height: 22px;
-          padding: 0 6px;
-          border-radius: 20px;
-          border: 1px solid #fff;
-          font-size: 14px;
-          cursor: pointer;
-        }
-      }
+.page {
+  background-color: #fafafa;
+  padding-bottom: 300px;
+}
+.sticky-top {
+  position: sticky;
+  top: 0;
+}
+.article-title {
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+  h1 {
+    font-size: 36px;
+    color: #444;
+    padding: 20px 50px;
+  }
+}
+.header {
+  height: 360px;
+  margin-bottom: 80px;
+  color: #333;
+  font-size: 24px;
+  background-color: #e2e3ca;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, #e2e3ca, #fafafa);
+  }
+}
+.article-info {
+  color: #666;
+  margin-bottom: 70px;
+  padding: 10px 0;
+  > div {
+    padding: 0 50px;
+  }
+  .tags {
+    span {
+      margin-right: 10px;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+      color: #999;
     }
   }
-  .article-body {
-    padding: 40px 0;
-    img {
-      max-width: 100%;
-    }
-    * {
-      line-height: initial;
-    }
+}
+.article-body {
+  padding: 20px 0;
+  color: #333;
+  img {
+    max-width: 100%;
+  }
+  * {
+    line-height: initial;
+  }
+  p {
+    line-height: 2;
+  }
+}
+.white-block {
+  border-radius: 8px;
+  /* background-color: rgba(255, 255, 255, 0.6); */
+  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); */
+  /* padding: 30px 50px; */
+}
+
+@media (max-width: 800px) {
+  .white-block {
+    border-radius: 0;
+    padding: 10px 14px;
   }
 }
 </style>
