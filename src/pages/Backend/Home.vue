@@ -1,7 +1,7 @@
-<script lang="ts">
+<script lang="tsx">
 import { ref, computed, onMounted } from "vue";
 import { ClientOnly } from "vite-ssr";
-import { Menu, Notebook, Expand } from "@element-plus/icons";
+import { Menu, Notebook, Expand, ArrowRight } from "@element-plus/icons";
 import { useRoute } from "vue-router";
 export default {
   components: {
@@ -19,16 +19,8 @@ export default {
         index: "article-management",
         children: [
           {
-            title: "文章详情",
-            index: "article",
-          },
-          {
             title: "文章列表",
-            index: "article-list",
-          },
-          {
-            title: "test",
-            index: "test",
+            index: "article",
           },
         ],
       },
@@ -39,26 +31,43 @@ export default {
         .split("/")
         .filter((item) => !["backend", ""].includes(item));
 
-      return "/backend/" + paths.slice(0, 3).join("/");
+      let activeStr = "/backend/" + paths.slice(0, 2).join("/");
+      return activeStr;
     });
 
-    let breadcrumbs = computed(() => {
-      let paths = $route.path
-        .split("/")
-        .filter((item) => !["backend", ""].includes(item));
+    // 面包屑
+    let breadcrumbs: any = computed(() => {
+      let { matched } = $route;
+      let _breadcrumbs: {
+        title: string;
+        path?: string;
+      }[] = [];
 
-      let _breadcrumbs: string[] = [];
-      menus.some((menu) => {
-        if (paths[0] === menu.index) {
-          _breadcrumbs.push(menu.title);
-          menu.children.some((childMenu) => {
-            if (childMenu.index === paths[1]) {
-              _breadcrumbs.push(childMenu.title);
-            }
-          });
-          return true;
-        }
+      // 一级目录
+      let levelOneMatch: any = matched[1];
+      _breadcrumbs.push({
+        title: levelOneMatch.meta.title as string,
+        path: "/backend/article-management/article",
       });
+
+      if (levelOneMatch.children[0]) {
+        // 二级目录
+        let levelTwoMatchItem = {
+          title: levelOneMatch.children[0].meta.title as string,
+          path: levelOneMatch.path,
+        };
+        _breadcrumbs.push(levelTwoMatchItem);
+
+        // 或者会有三级目录
+        let levelThreeMatch = matched[matched.length - 1];
+        if (levelThreeMatch.path !== levelTwoMatchItem.path) {
+          _breadcrumbs.push({
+            title: levelThreeMatch.meta.title as string,
+            path: levelThreeMatch.path,
+          });
+        }
+      }
+
       return _breadcrumbs;
     });
 
@@ -66,75 +75,82 @@ export default {
       menuCollapse.value = !menuCollapse.value;
     }
 
-    onMounted(() => {
-      // console.log($route);
-      // console.log(paths);
-    });
-
-    return {
-      menuCollapse,
-      menus,
-      handleExpand,
-      defaultActive,
-      breadcrumbs,
+    return () => {
+      return (
+        <ClientOnly>
+          <div class="backend-wrapper">
+            {/** 头部 */}
+            <header></header>
+            {/** body */}
+            <div class="body">
+              {/** 侧边栏 */}
+              <aside class={[!menuCollapse.value ? "is-open" : ""]}>
+                <div class="menu-control">
+                  <el-icon size={20}>
+                    <expand onclick={handleExpand} />
+                  </el-icon>
+                </div>
+                {/** 目录 */}
+                <el-menu
+                  class="backend-menu"
+                  router
+                  collapse={menuCollapse.value}
+                  default-active={defaultActive.value}
+                >
+                  {menus.map((menu, index) => {
+                    return (
+                      <el-sub-menu
+                        key={index}
+                        index={menu.index}
+                        v-slots={{
+                          title: () => (
+                            <>
+                              <el-icon>
+                                <notebook />
+                              </el-icon>
+                              <span>{menu.title}</span>
+                            </>
+                          ),
+                        }}
+                      >
+                        {menu.children.map((subMenuItem, subIndex) => {
+                          return (
+                            <el-menu-item
+                              key={subIndex}
+                              index={`/backend/${menu.index}/${subMenuItem.index}`}
+                            >
+                              {subMenuItem.title}
+                            </el-menu-item>
+                          );
+                        })}
+                      </el-sub-menu>
+                    );
+                  })}
+                </el-menu>
+              </aside>
+              <div class="main">
+                {/** 面包屑 */}
+                <el-breadcrumb separator-icon={ArrowRight}>
+                  {breadcrumbs.value.map((item, index) => {
+                    return (
+                      <el-breadcrumb-item key={index} to={item.path}>
+                        {item.title}
+                      </el-breadcrumb-item>
+                    );
+                  })}
+                </el-breadcrumb>
+                <div class="main-body">
+                  <router-view />
+                </div>
+              </div>
+            </div>
+          </div>
+        </ClientOnly>
+      );
     };
   },
 };
 </script>
-
-<template>
-  <ClientOnly>
-    <div class="backend-wrapper">
-      <!-- 公共头部 -->
-      <header></header>
-      <div class="body">
-        <!-- 侧边栏 -->
-        <aside :class="[!menuCollapse ? 'is-open' : '']">
-          <div class="menu-control">
-            <el-icon :size="20">
-              <expand @click="handleExpand" />
-            </el-icon>
-          </div>
-          <el-menu
-            class="backend-menu"
-            :router="true"
-            :collapse="menuCollapse"
-            :default-active="defaultActive"
-          >
-            <el-sub-menu v-for="(menu, index) in menus" :key="index" :index="menu.index">
-              <template #title>
-                <el-icon>
-                  <notebook />
-                </el-icon>
-                <span>{{ menu.title }}</span>
-              </template>
-              <el-menu-item
-                v-for="(subMenuItem, subIndex) in menu.children"
-                :key="subIndex"
-                :index="`/backend/${menu.index}/${subMenuItem.index}`"
-              >{{ subMenuItem.title }}</el-menu-item>
-            </el-sub-menu>
-          </el-menu>
-        </aside>
-        <!-- 内容 -->
-        <div class="main">
-          <!-- 面包屑 -->
-          <el-breadcrumb separator="/">
-            <el-breadcrumb-item v-for="item in breadcrumbs" :key="item">
-              {{
-              item
-              }}
-            </el-breadcrumb-item>
-          </el-breadcrumb>
-          <!-- 内容 路由控制显示 -->
-          <div class="main-body">
-            <router-view />
-          </div>
-        </div>
-      </div>
-    </div>
-  </ClientOnly>
-</template>
 
 <style lang="scss">
 .backend-wrapper {

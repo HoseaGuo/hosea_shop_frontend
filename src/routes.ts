@@ -20,7 +20,7 @@ import backendRoutes from './pages/Backend/route'
 
 let routes: RouteRecordRaw[] = [
   // 后台页面
-  // backendRoutes,
+  backendRoutes,
   {
     path: '/',
     component: () => import('./pages/Frontend/Home.vue')
