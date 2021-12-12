@@ -28,6 +28,8 @@
     "patch-vue-directive-ssr": "^0.0.1",
     "sass": "^1.43.4",
     "typescript": "^4.3.2",
+    "unplugin-auto-import": "^0.5.3",
+    "unplugin-vue-components": "^0.17.8",
     "vite": "^2.5.4",
     "vue-tsc": "^0.2.2"
   }

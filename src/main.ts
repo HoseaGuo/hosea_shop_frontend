@@ -1,19 +1,19 @@
 // import { createApp } from 'vue'
-import App from './App.vue'
-import routes from './routes'
-import viteSSR from 'vite-ssr'
+import App from "./App.vue";
+import routes from "./routes";
+import viteSSR from "vite-ssr";
 // 样式
-import './styles/reset.scss'
-import './styles/public.scss'
+import "./styles/reset.scss";
+import "./styles/public.scss";
 // elementui引入
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+// import ElementPlus from 'element-plus'
+import "element-plus/dist/index.css";
 
-import { createHead } from '@vueuse/head'
+import { createHead } from "@vueuse/head";
 import hljs from "highlight.js"; // 引入 highlight.js
 
 // 忽略highlight的unescapedHTML警告
-hljs.configure({ ignoreUnescapedHTML: true })
+hljs.configure({ ignoreUnescapedHTML: true });
 
 export default viteSSR(App, { routes }, async ({ app, router }) => {
   /* Vite SSR main hook for custom logic */
@@ -23,7 +23,6 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
   //   console.log(to)
 
   //   console.log(import.meta.env.SSR)
-
 
   //   /* if (to.meta.state) {
   //     return // Already has state
@@ -35,20 +34,20 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
   //   to.meta.state = await response.json() */
   // })
 
-  // #在main.js定义自定义指令 
-  app.directive('highlight', function (el) {
+  // #在main.js定义自定义指令
+  app.directive("highlight", function (el) {
     // console.log(el.innerHTML)
-    let blocks = el.querySelectorAll('pre code');
+    let blocks = el.querySelectorAll("pre code");
     blocks.forEach((block) => {
       hljs.highlightElement(block);
-    })
+    });
     // hljs.highlightElement(el)
-  })
+  });
 
-  app.use(ElementPlus);
+  // app.use(ElementPlus);
 
   /* 使用 添加 head tags and attributes */
   const head = createHead();
   app.use(head);
-  return { head }
-})
+  return { head };
+});

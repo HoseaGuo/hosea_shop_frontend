@@ -1,11 +1,9 @@
 <script lang="tsx">
-import { ref, computed, onMounted } from "vue";
 import { ClientOnly } from "vite-ssr";
-import { Menu, Notebook, Expand, ArrowRight } from "@element-plus/icons";
+import { Notebook, Expand, ArrowRight } from "@element-plus/icons";
 import { useRoute } from "vue-router";
 export default {
   components: {
-    IconMenu: Menu,
     Notebook,
     Expand,
     ClientOnly,
