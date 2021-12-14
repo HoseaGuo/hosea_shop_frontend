@@ -13,7 +13,7 @@ let route: RouteRecordRaw = {
       children: [
         {
           path: "",
-          name: "article-list",
+          name: "articleList",
           meta: { title: "文章列表" },
           component: () => import("./ArticleManagement/ArticleList.vue"),
         },
@@ -39,12 +39,12 @@ let route: RouteRecordRaw = {
     {
       path: "/:pathMatch(.*)",
       redirect: {
-        name: "article",
+        name: "articleList",
       }, // 重定向到后台首页
     },
   ],
   redirect: {
-    name: "article",
+    name: "articleList",
   }, // 重定向到后台首页
 };
 

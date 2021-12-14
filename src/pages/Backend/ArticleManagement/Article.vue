@@ -1,13 +1,19 @@
-
 <script lang="ts">
-import { ref } from "vue";
 import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的是sublime样式
 // 引入处理markdown的web worker
 import markedWorker from "./worker/markedWorker?url";
 import request from "@utils/request";
+import { ElMessage } from "element-plus";
+import { useRouter, useRoute } from "vue-router";
 
 export default {
   setup() {
+    let $router = useRouter();
+    let $route = useRoute();
+
+    // 文章id
+    let docId: string = $route.params.id as string;
+
     // 文章标题
     let title = ref("");
 
@@ -21,8 +27,19 @@ export default {
 
     let markedWorkerConnect;
 
+    // 是否编辑状态
+    let isEdit = computed(() => {
+      return docId !== "";
+    });
+
+    // markdown编辑
     function handleInput(e: Event) {
       let { value } = e.target as any;
+      transformMarkdown(value);
+    }
+
+    // 转换 markdown 成 html
+    function transformMarkdown(str: string) {
       clearTimeout(timer);
       markedWorkerConnect?.terminate();
       timer = setTimeout(() => {
@@ -35,30 +52,58 @@ export default {
           markedWorkerConnect?.terminate();
         };
 
-        markedWorkerConnect.postMessage(value);
+        markedWorkerConnect.postMessage(str);
       }, 200);
     }
 
+    async function queryDocById() {
+      let result = await request({
+        url: "/v1/article",
+        data: {
+          _id: docId,
+        },
+      });
+      if (result.success) {
+        // console.log(result.data);
+        let { data } = result;
+        title.value = data.title;
+        markdown.value = data.content;
+
+        // 触发一次markdown转换
+        transformMarkdown(data.content);
+      }
+    }
+
+    // 提交
     async function handleSubmit() {
-      let postData = {
+      let postData: any = {
         title: title.value,
         content: markdown.value,
       };
-      // console.log(postData);
 
-      // let result: any = await request({
-      //   url: "https://sdk.shruiwan.com/home/topics/5dc27f1354c21d27a3cd7500/json?app_id=5c64ca9454c21d3e66131409",
-      // });
-      // console.log(result);
+      if (isEdit) postData._id = docId;
 
       let result = await request({
         url: "/v1/article",
-        method: "post",
+        method: isEdit ? "put" : "post",
         data: postData,
       });
 
-      console.log(result);
+      if (result.success) {
+        ElMessage.success(result.msg);
+
+        $router.replace({
+          name: "articleList",
+        });
+      }
     }
+
+    onMounted(() => {
+      // 如果是编辑状态，则查询文章
+      if (isEdit) {
+        queryDocById();
+      }
+    });
 
     return {
       title,
@@ -74,8 +119,15 @@ export default {
 <template>
   <div class="wrapper">
     <div class="top">
-      <input v-model="title" type="text" class="article-title" placeholder="请输入标题" />
-      <el-button type="primary" class="btn-submit" @click="handleSubmit">保存</el-button>
+      <input
+        v-model="title"
+        type="text"
+        class="article-title"
+        placeholder="请输入标题"
+      />
+      <el-button type="primary" class="btn-submit" @click="handleSubmit"
+        >保存</el-button
+      >
     </div>
     <div class="article-content">
       <textarea @input="handleInput" v-model="markdown" />

@@ -2,11 +2,15 @@
 import { onMounted, ref } from "vue";
 import request from "@utils/request";
 import moment from "moment";
+import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
     // 表格数据
     let tableData = ref([]);
+
+    let $router = useRouter();
 
     let columnData = [
       {
@@ -31,13 +35,21 @@ export default {
         prop: "",
         label: "操作",
         slots: {
-          default: () => {
+          default: ({ row }) => {
             return (
               <>
-                <el-button size="mini" type="primary">
+                <el-button
+                  size="mini"
+                  type="primary"
+                  onclick={editArticle.bind(null, row)}
+                >
                   编辑
                 </el-button>
-                <el-button size="mini" type="danger">
+                <el-button
+                  size="mini"
+                  type="danger"
+                  onclick={deleteArticle.bind(null, row)}
+                >
                   删除
                 </el-button>
               </>
@@ -47,17 +59,48 @@ export default {
       },
     ];
 
+    // 删除文章
+    async function deleteArticle(row) {
+      let result = await request({
+        url: "/v1/article",
+        method: "delete",
+        data: {
+          _id: row._id,
+        },
+      });
+      if (result.success) {
+        ElMessage.success(result.msg);
+        queryArticle();
+      }
+    }
+
+    // 编辑文章
+    async function editArticle(row) {
+      // 跳转到编辑页面
+      $router.push({
+        name: "articleEdit",
+        params: {
+          id: row._id,
+        },
+      });
+    }
+
+    // 编辑文章
+
+    // 查询列表
     async function queryArticle() {
-      let result: any = await request({
+      let result = await request({
         url: "/v1/article",
       });
       if (result.success) {
         tableData.value = result.data;
       }
     }
+
     onMounted(() => {
-      // queryArticle();
+      queryArticle();
     });
+
     return () => {
       return (
         <div>
