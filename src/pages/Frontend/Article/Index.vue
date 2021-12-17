@@ -1,16 +1,38 @@
-<template>
-  <div class="article">
-    <router-link v-for="i in 10" to="/article/details" :key="i">
-      <p>文章1</p>
-    </router-link>
-  </div>
-</template>
-
-<script lang="ts">
+<script lang="tsx">
+// import request from "@utils/request";
+import { ref, onMounted } from "vue";
 export default {
+  setup() {
+    let articleList = ref([]);
 
-}
+    // 获取文章列表
+    async function getArticleList() {
+      console.log(request);
+      // let result = await request({
+      //   url: "/v1/article",
+      // });
+      // if (result.success) {
+      //   console.log(result.data);
+      // }
+    }
+
+    onMounted(() => {
+      getArticleList();
+    });
+
+    return () => (
+      <div class="article">
+        {
+          <router-link to="/article/details">
+            <p>文章1</p>
+          </router-link>
+        }
+      </div>
+    );
+  },
+};
 </script>
+
 <style lang="scss" scoped>
 .article {
   margin: 10px auto;

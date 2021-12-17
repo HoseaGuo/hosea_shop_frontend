@@ -7,6 +7,8 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
+import MyUnplugin from "./unplugin/MyUnplugin";
+
 const { resolve } = require("path");
 
 // https://vitejs.dev/config/
@@ -44,6 +46,13 @@ export default defineConfig({
           importStyle: false,
         }),
       ],
+    }),
+    MyUnplugin.vite({
+      dts: true,
+      imports: {
+        request: { path: "@/utils/request", importName: "default" },
+      },
+      include: [/\.(vue|tsx)$/],
     }),
   ],
   server: {

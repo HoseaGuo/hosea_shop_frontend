@@ -2,7 +2,7 @@
 import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的是sublime样式
 // 引入处理markdown的web worker
 import markedWorker from "./worker/markedWorker?url";
-import request from "@utils/request";
+// import request from "@utils/request";
 import { ElMessage } from "element-plus";
 import { useRouter, useRoute } from "vue-router";
 

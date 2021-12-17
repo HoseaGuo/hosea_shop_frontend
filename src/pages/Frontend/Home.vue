@@ -26,6 +26,10 @@ export default {
       // ],
     });
 
+    onMounted(() => {
+      console.log(request);
+    });
+
     return () => (
       <div class="home-page">
         hello world
