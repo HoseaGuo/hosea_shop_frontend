@@ -1,3 +1,4 @@
+/** 仿照unplugin-auto-import编写的MyPlugin*/
 import { createUnplugin } from "unplugin";
 import fs from "fs";
 import path from "path";
@@ -20,20 +21,52 @@ type UserOptions = {
   imports?: ImportsMap;
 };
 
+var excludeRE = [
+  /\bimport\s*([\s\S]+?)\s*from\b/g,
+  /\bfunction\s*([\w_$]+?)\s*\(/g,
+  /\b(?:const|let|var)\s+?(\[[\s\S]*?\]|\{[\s\S]*?\}|[\s\S]+?)\s*?[=;\n]/g
+];
+var matchRE = /(?<![\w_$]\.)([\w_$]+?)[^\w_${]/g;
+var importAsRE = /^.*\sas\s+/;
+var seperatorRE = /[,[\]{}\n]/g;
+
 function transform(code, id, imports: ImportsMap = {}) {
+
+  // 遍历所有的
+  const identifiers = new Set(Array.from(code.matchAll(matchRE)).map((i) => i[1]));
+
+  if (!identifiers.size) return null;
+
+  // 排除已经引入的
+  for (const regex of excludeRE) {
+    Array.from(code.matchAll(regex)).flatMap((i) => {
+      var _a, _b;
+      return [
+        ...((_a = i[1]) == null ? void 0 : _a.split(seperatorRE)) || [],
+        ...((_b = i[2]) == null ? void 0 : _b.split(seperatorRE)) || []
+      ];
+    }).map((i) => i.replace(importAsRE, "").trim()).forEach((i) => identifiers.delete(i));
+  }
+
+  if (!identifiers.size) return null;
+
   const modules = {};
   const addToModules = (info) => {
     if (!modules[info.path]) modules[info.path] = [info];
     else modules[info.path].push(info);
   };
 
-  Object.entries(imports).forEach(([name, info]) => {
-    addToModules({
-      path: info.path,
-      importName: info.importName,
-      name,
-    });
-  });
+  // 遍历identifiers，如果imports有引入的则添加到imports里
+  for (const name of Array.from(identifiers)) {
+    let info = imports[name];
+    if (info) {
+      addToModules({
+        path: info.path,
+        importName: info.importName,
+        name,
+      });
+    }
+  }
 
   const importStatements = Object.entries(modules)
     .map(([moduleName, infos]) => {
@@ -53,9 +86,8 @@ function transform(code, id, imports: ImportsMap = {}) {
           }
         });
       if (namedImports.length) imports2.push(`{ ${namedImports.join(", ")} }`);
-      return `import ${
-        imports2.length > 0 ? `${imports2.join(", ")} from ` : ""
-      }'${moduleName}';`;
+      return `import ${imports2.length > 0 ? `${imports2.join(", ")} from ` : ""
+        }'${moduleName}';`;
     })
     .join("");
 
@@ -72,8 +104,7 @@ function generateDeclaration(imports: ImportsMap) {
     .sort((a, b) => a[0].localeCompare(b[0]))
     .map(
       ([name, info]) =>
-        `  const ${name}: typeof import('${info.path}')${
-          info.importName !== "*" ? `['${info.importName || name}']` : ""
+        `  const ${name}: typeof import('${info.path}')${info.importName !== "*" ? `['${info.importName || name}']` : ""
         }`
     )
     .join("\n");
@@ -90,8 +121,8 @@ export const unplugin = createUnplugin<UserOptions>((options: UserOptions) => {
   let dts = !options.dts
     ? false
     : options.dts === true
-    ? path.resolve.call(void 0, "customGlogal.d.ts")
-    : path.resolve.call(void 0, options.dts);
+      ? path.resolve.call(void 0, "customGlogal.d.ts")
+      : path.resolve.call(void 0, options.dts);
 
   const idFilter = pluginutils.createFilter.call(
     void 0,
