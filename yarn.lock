@@ -413,6 +413,15 @@
   resolved "https://registry.npmmirror.com/@popperjs/core/download/@popperjs/core-2.10.2.tgz?cache=0&sync_timestamp=1633001189151&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40popperjs%2Fcore%2Fdownload%2F%40popperjs%2Fcore-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha1-B5jAM1Hw3qGlpMq93yalWny+5ZA=
 
+"@rollup/plugin-inject@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.npmmirror.com/@rollup/plugin-inject/download/@rollup/plugin-inject-4.0.3.tgz#6f04ebc14790a8bf892286fe9b8c0eb1ddf4d5ce"
+  integrity sha1-bwTrwUeQqL+JIob+m4wOsd301c4=
+  dependencies:
+    "@rollup/pluginutils" "^3.1.0"
+    estree-walker "^2.0.1"
+    magic-string "^0.25.7"
+
 "@rollup/plugin-replace@^3.0.0":
   version "3.0.0"
   resolved "https://registry.nlark.com/@rollup/plugin-replace/download/@rollup/plugin-replace-3.0.0.tgz#3a4c9665d4e7a4ce2c360cf021232784892f3fac"

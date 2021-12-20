@@ -8,6 +8,7 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 import MyUnplugin from "./unplugin/MyUnplugin";
+import TsPluginInject from "./unplugin/TsPluginInject";
 
 const { resolve } = require("path");
 
@@ -47,12 +48,10 @@ export default defineConfig({
         }),
       ],
     }),
-    MyUnplugin.vite({
-      dts: true,
-      imports: {
-        request: { path: "@/utils/request", importName: "default" },
+    TsPluginInject({
+      modules: {
+        request: ["@/utils/request", "default"],
       },
-      include: [/\.(vue|tsx)$/],
     }),
   ],
   server: {
