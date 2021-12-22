@@ -1,19 +1,17 @@
 <script lang="tsx">
-// import request from "@utils/request";
-import { ref, onMounted } from "vue";
 export default {
   setup() {
     let articleList = ref([]);
 
     // 获取文章列表
     async function getArticleList() {
-      console.log(request);
-      // let result = await request({
-      //   url: "/v1/article",
-      // });
-      // if (result.success) {
-      //   console.log(result.data);
-      // }
+      let result = await request({
+        url: "v1/article",
+      });
+      if (result.success) {
+        // console.log(result.data);
+        articleList.value = result.data;
+      }
     }
 
     onMounted(() => {
@@ -22,11 +20,13 @@ export default {
 
     return () => (
       <div class="article">
-        {
-          <router-link to="/article/details">
-            <p>文章1</p>
-          </router-link>
-        }
+        {articleList.value.map((article: any, index) => {
+          return (
+            <router-link key={index} to={`/article/details/${article._id}`}>
+              <p>{article.title}</p>
+            </router-link>
+          );
+        })}
       </div>
     );
   },

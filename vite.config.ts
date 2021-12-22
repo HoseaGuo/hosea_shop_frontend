@@ -31,7 +31,7 @@ export default defineConfig({
     vue(),
     // 自动引入 vue 等
     AutoImport({
-      imports: ["vue"], // '@vueuse/core'
+      imports: ["vue", "vue-router", "@vueuse/core"],
       resolvers: [
         ElementPlusResolver({
           ssr: true,
@@ -51,6 +51,7 @@ export default defineConfig({
     TsPluginInject({
       modules: {
         request: ["@/utils/request", "default"],
+        moment: ["moment", "*"],
       },
     }),
   ],

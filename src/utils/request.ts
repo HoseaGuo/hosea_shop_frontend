@@ -1,5 +1,7 @@
 import axios from "axios";
-// const config = require('../config');
+
+// 服务器版本号
+const SERVER_VERSION = "v1";
 
 type PromiseResolve = {
   success: boolean;
@@ -17,6 +19,13 @@ function request(_options) {
 
   options.method = options.method || "get";
 
+  // 处理接口版本，默认 /v1 开头的
+  options.url = options.url.replace(
+    new RegExp(`^(\/?${SERVER_VERSION})?`),
+    `/${SERVER_VERSION}`
+  );
+
+  // 如果是get请求，将 data 设置成 params
   if (/^get$/i.test(options.method)) {
     options.params = options.data;
   }

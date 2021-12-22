@@ -1,12 +1,5 @@
 <script lang="tsx">
-// import { css, cx, sheet, cache, getRegisteredStyles } from "@emotion/css";
 import { useHead } from "@vueuse/head";
-// import { compile, serialize, stringify, middleware, prefixer } from "stylis";
-
-// function css(style: TemplateStringsArray | string) {
-//   let _style = typeof style === "string" ? style : style.join("");
-//   return serialize(compile(_style), middleware([prefixer, stringify]));
-// }
 
 export default {
   setup() {
@@ -19,16 +12,9 @@ export default {
           content: "vite ssr home page",
         },
       ],
-      // style: [
-      //   {
-      //     children: headStyle,
-      //   },
-      // ],
     });
 
-    onMounted(() => {
-      console.log(request);
-    });
+    onMounted(() => {});
 
     return () => (
       <div class="home-page">
