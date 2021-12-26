@@ -3,6 +3,9 @@ import axios from "axios";
 // 服务器版本号
 const SERVER_VERSION = "v1";
 
+// @ts-ignore
+let isDev = import.meta.env.MODE === 'development'
+
 type PromiseResolve = {
   success: boolean;
   msg: string;
@@ -10,7 +13,7 @@ type PromiseResolve = {
 };
 
 const instance = axios.create({
-  // baseURL: 'https://api.weixin.qq.com/cgi-bin',
+  baseURL: isDev ? "" : "http://api.hosea.shop", // 开发环境下不设置，由vite.config.ts里的proxy控制
   timeout: 30000,
 });
 
