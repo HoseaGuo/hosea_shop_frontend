@@ -5,11 +5,11 @@ export default {
   setup() {
     useHead({
       // Can be static or computed
-      title: "home",
+      title: "Hosea爱生活",
       meta: [
         {
-          name: `description`,
-          content: "vite ssr home page",
+          name: `Hosea爱生活`,
+          content: "Hosea爱生活",
         },
       ],
     });
@@ -18,8 +18,7 @@ export default {
 
     return () => (
       <div class="home-page">
-        hello world
-        {/* <h1>Hosea爱生活</h1> */}
+        <h1>Hosea爱生活</h1>
         <div class="nav">
           <div class="item">
             <router-link to="/article" class="inner">

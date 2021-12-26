@@ -25,7 +25,16 @@ export default defineConfig({
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
     }),
-    viteSSR(),
+    viteSSR({
+      build: {
+        serverOptions: {
+          // 从package.json获取dependencies，到时候发布到服务器上后，也要安装的
+          packageJson: {
+            dependencies: require("./package.json").dependencies
+          }
+        },
+      },
+    }),
     vue(),
     // 自动引入 vue 等
     AutoImport({
