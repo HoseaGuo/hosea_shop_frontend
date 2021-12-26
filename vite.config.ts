@@ -12,6 +12,7 @@ const { resolve } = require("path");
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
   resolve: {
     // 配置别名
     alias: {
@@ -30,8 +31,8 @@ export default defineConfig({
         serverOptions: {
           // 从package.json获取dependencies，到时候发布到服务器上后，也要安装的
           packageJson: {
-            dependencies: require("./package.json").dependencies
-          }
+            dependencies: require("./package.json").dependencies,
+          },
         },
       },
     }),
@@ -58,7 +59,7 @@ export default defineConfig({
     TsPluginInject({
       modules: {
         request: ["@/utils/request", "default"],
-        moment: ["moment", "*"],
+        moment: ["moment", "default"],
       },
     }),
   ],

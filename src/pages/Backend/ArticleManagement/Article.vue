@@ -29,7 +29,7 @@ export default {
 
     // 是否编辑状态
     let isEdit = computed(() => {
-      return docId !== "";
+      return Boolean(docId);
     });
 
     // markdown编辑
@@ -80,12 +80,11 @@ export default {
         title: title.value,
         content: markdown.value,
       };
-
-      if (isEdit) postData._id = docId;
+      if (isEdit.value) postData._id = docId;
 
       let result = await request({
         url: "/v1/article",
-        method: isEdit ? "put" : "post",
+        method: isEdit.value ? "put" : "post",
         data: postData,
       });
 
@@ -100,7 +99,7 @@ export default {
 
     onMounted(() => {
       // 如果是编辑状态，则查询文章
-      if (isEdit) {
+      if (isEdit.value) {
         queryDocById();
       }
     });

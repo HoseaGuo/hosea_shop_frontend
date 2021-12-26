@@ -1,7 +1,7 @@
 <script lang="tsx">
 import { ElMessage } from "element-plus";
 export default {
-  setup() {
+  async setup() {
     let $route = useRoute();
     let data = reactive({
       article: {
@@ -29,40 +29,42 @@ export default {
       }
     }
 
-    onMounted(() => {
-      getArticleDetails();
-    });
+    // 加载文章数据
+    await getArticleDetails();
 
-    return () => (
-      <div class="page">
-        <div class="header">
-          <div class="public-container wing-blank"></div>
-        </div>
-        <div class="article-title sticky-top">
-          <h1 class="public-container wing-blank">{data.article.title}</h1>
-        </div>
-        <div class="article-info">
-          <div class="public-container">
-            <p>
-              发布时间：
-              {moment(data.article.createdAt).format("YYYY-MM-DD HH:mm")}
-            </p>
-            <div class="tags">
-              <span>健康</span>
-              <span>生活</span>
+    return () => {
+      return (
+        <div class="page">
+          <div class="header">
+            <div class="public-container wing-blank"></div>
+          </div>
+          <div class="article-title sticky-top">
+            <h1 class="public-container wing-blank">{data.article.title}</h1>
+          </div>
+          <div class="article-info">
+            <div class="public-container">
+              <p>
+                发布时间：
+                {moment(data.article.createdAt).format("YYYY-MM-DD HH:mm")}
+              </p>
+              <div class="tags">
+                <span>健康</span>
+                <span>生活</span>
+              </div>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="public-container wing-blank">
+              <div class="article-content">{data.article.content}</div>
             </div>
           </div>
         </div>
-        <div class="article-body">
-          <div class="public-container wing-blank">
-            <div class="article-content">{data.article.content}</div>
-          </div>
-        </div>
-      </div>
-    );
+      );
+    };
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .page {
   background-color: #fafafa;
