@@ -3,13 +3,17 @@ import { useHead } from "@vueuse/head";
 
 export default {
   setup() {
+    let title = "Hosea爱生活";
     useHead({
-      // Can be static or computed
-      title: "Hosea爱生活",
+      title,
       meta: [
         {
-          name: `Hosea爱生活`,
-          content: "Hosea爱生活",
+          name: "keywords",
+          content: title,
+        },
+        {
+          name: "description",
+          content: title,
         },
       ],
     });

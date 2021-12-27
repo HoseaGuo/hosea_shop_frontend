@@ -1,5 +1,8 @@
 <script lang="tsx">
+import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的是sublime样式
 import { ElMessage } from "element-plus";
+import marked from "@utils/marked";
+import { useHead } from "@vueuse/head";
 export default {
   async setup() {
     let $route = useRoute();
@@ -9,6 +12,24 @@ export default {
         content: "",
         createdAt: "",
       },
+    });
+
+    let title = computed(() => {
+      return `${data.article.title} - Hosea爱生活`;
+    });
+
+    useHead({
+      title,
+      meta: [
+        {
+          name: "keywords",
+          content: title,
+        },
+        {
+          name: "description",
+          content: title,
+        },
+      ],
     });
 
     async function getArticleDetails() {
@@ -23,6 +44,8 @@ export default {
         if (result.success) {
           // console.log(result.data);
           data.article = result.data;
+          let { title } = result.data;
+          title = `${title} - Hosea爱生活`;
         }
       } else {
         ElMessage("没有找到文章");
@@ -47,15 +70,18 @@ export default {
                 发布时间：
                 {moment(data.article.createdAt).format("YYYY-MM-DD HH:mm")}
               </p>
-              <div class="tags">
+              {/* <div class="tags">
                 <span>健康</span>
                 <span>生活</span>
-              </div>
+              </div> */}
             </div>
           </div>
           <div class="article-body">
             <div class="public-container wing-blank">
-              <div class="article-content">{data.article.content}</div>
+              <div
+                class="article-content"
+                innerHTML={marked(data.article.content)}
+              ></div>
             </div>
           </div>
         </div>

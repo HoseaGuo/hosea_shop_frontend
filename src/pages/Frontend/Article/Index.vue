@@ -1,6 +1,22 @@
 <script lang="tsx">
+import { useHead } from "@vueuse/head";
 export default {
   setup() {
+    let title = "文章列表 - Hosea爱生活";
+    useHead({
+      title,
+      meta: [
+        {
+          name: "keywords",
+          content: title,
+        },
+        {
+          name: "description",
+          content: title,
+        },
+      ],
+    });
+
     let articleList = ref([]);
 
     // 获取文章列表

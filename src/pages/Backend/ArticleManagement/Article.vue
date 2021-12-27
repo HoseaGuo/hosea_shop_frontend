@@ -1,7 +1,7 @@
 <script lang="ts">
 import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的是sublime样式
 // 引入处理markdown的web worker
-import markedWorker from "./worker/markedWorker?url";
+import MarkedWorker from "@/workers/markedWorker?worker";
 // import request from "@utils/request";
 import { ElMessage } from "element-plus";
 import { useRouter, useRoute } from "vue-router";
@@ -43,9 +43,7 @@ export default {
       clearTimeout(timer);
       markedWorkerConnect?.terminate();
       timer = setTimeout(() => {
-        markedWorkerConnect = new Worker(markedWorker, {
-          type: "module",
-        });
+        markedWorkerConnect = new MarkedWorker();
 
         markedWorkerConnect.onmessage = function (e) {
           html.value = e.data;

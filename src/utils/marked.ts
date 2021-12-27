@@ -20,18 +20,14 @@ marked.setOptions({
   langPrefix: "hljs language-", // highlight.js css expects a top-level 'hljs' class.
 });
 
-self.onmessage = function (e) {
-  let value = e.data;
-  let markedHtml = "";
-  if (value) {
-    markedHtml = marked(value);
+export default function (markdown) {
+  let content = marked(markdown);
 
-    // 在没有明显设置语言的code上添加 class类hljs，以达到有背景颜色效果
-    markedHtml = markedHtml.replace(
-      /<pre><code>/gs,
-      '<pre><code class="hljs">'
-    );
-  }
+  // 在没有明显设置语言的code上添加 class类hljs，以达到有背景颜色效果
+  content = content.replace(
+    /<pre><code>/gs,
+    '<pre><code class="hljs">'
+  );
 
-  self.postMessage(markedHtml);
+  return content;
 };
