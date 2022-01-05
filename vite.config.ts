@@ -6,7 +6,6 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
-import TsPluginInject from "./unplugin/TsPluginInject";
 
 const { resolve } = require("path");
 
@@ -39,7 +38,10 @@ export default defineConfig({
     vue(),
     // 自动引入 vue 等
     AutoImport({
-      imports: ["vue", "vue-router", "@vueuse/core"],
+      imports: ["vue", "vue-router", "@vueuse/core", {
+        "@/utils/request": [["default", "request"]],
+        "moment": [["*", "moment"]]
+      }],
       resolvers: [
         ElementPlusResolver({
           ssr: true,
@@ -56,12 +58,12 @@ export default defineConfig({
         }),
       ],
     }),
-    TsPluginInject({
-      modules: {
-        request: ["@/utils/request", "default"],
-        moment: ["moment", "default"],
-      },
-    }),
+    // TsPluginInject({
+    //   modules: {
+    //     request: ["@/utils/request", "default"],
+    //     moment: ["moment", "default"],
+    //   },
+    // }),
   ],
   server: {
     // 配置代理
