@@ -6,7 +6,7 @@ import MarkedWorker from "@/workers/markedWorker?worker";
 import { ElMessage } from "element-plus";
 import { useRouter, useRoute } from "vue-router";
 
-export default {
+export default defineComponent({
   setup() {
     let $router = useRouter();
     let $route = useRoute();
@@ -110,7 +110,7 @@ export default {
       handleSubmit,
     };
   },
-};
+});
 </script>
 
 <template>

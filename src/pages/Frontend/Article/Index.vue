@@ -23,6 +23,7 @@ export default {
     async function getArticleList() {
       let result = await request({
         url: "v1/article",
+        showMsg: false,
       });
       if (result.success) {
         // console.log(result.data);

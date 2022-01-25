@@ -2,6 +2,7 @@
 import App from "./App.vue";
 import routes from "./routes";
 import viteSSR from "vite-ssr";
+import store from './store'
 // 样式
 import "./styles/reset.scss";
 import "./styles/public.scss";
@@ -43,6 +44,9 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
     });
     // hljs.highlightElement(el)
   });
+
+  // 将 store 实例作为插件安装
+  app.use(store);
 
   // app.use(ElementPlus);
 

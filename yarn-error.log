@@ -1,30 +1,28 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js publish
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add // 将 store 实例作为插件安装
 
 PATH: 
-  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;H:\software\nvm;C:\Program Files\nodejs;H:\software\Git\cmd;C:\Users\guohx\AppData\Local\Microsoft\WindowsApps;H:\software\nvm;C:\Program Files\nodejs;H:\software\Microsoft VS Code\bin
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;H:\software\Git\cmd;H:\software\;C:\Users\guohx\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\guohx\AppData\Local\Microsoft\WindowsApps;H:\software\Microsoft VS Code\bin;C:\Users\guohx\AppData\Roaming\nvm;C:\Program Files\nodejs
 
 Yarn version: 
   1.22.17
 
 Node version: 
-  16.11.1
+  16.13.1
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: canceled
-      at Interface.<anonymous> (H:\software\nvm\v16.11.1\node_modules\yarn\lib\cli.js:137143:13)
-      at Interface.emit (node:events:390:28)
-      at Interface._ttyWrite (node:readline:1081:16)
-      at ReadStream.onkeypress (node:readline:288:10)
-      at ReadStream.emit (node:events:390:28)
-      at emitKeys (node:internal/readline/utils:358:14)
-      at emitKeys.next (<anonymous>)
-      at ReadStream.onData (node:internal/readline/emitKeypressEvents:61:36)
-      at ReadStream.emit (node:events:390:28)
-      at addChunk (node:internal/streams/readable:315:12)
+  TypeError [ERR_UNESCAPED_CHARACTERS]: https://registry.yarnpkg.com/将: Request path contains unescaped characters
+      at new NodeError (node:internal/errors:371:5)
+      at new ClientRequest (node:_http_client:154:13)
+      at Object.request (node:https:353:10)
+      at Request.module.exports.Request.start (C:\Users\guohx\AppData\Roaming\nvm\v16.13.1\node_modules\yarn\lib\cli.js:141445:32)
+      at Request.module.exports.Request.end (C:\Users\guohx\AppData\Roaming\nvm\v16.13.1\node_modules\yarn\lib\cli.js:142204:10)
+      at end (C:\Users\guohx\AppData\Roaming\nvm\v16.13.1\node_modules\yarn\lib\cli.js:141258:14)
+      at Immediate.<anonymous> (C:\Users\guohx\AppData\Roaming\nvm\v16.13.1\node_modules\yarn\lib\cli.js:141272:7)
+      at processImmediate (node:internal/timers:464:21)
 
 npm manifest: 
   {
@@ -32,10 +30,13 @@ npm manifest:
     "version": "0.0.0",
     "scripts": {
       "dev": "vite-ssr dev --force",
+      "##打包": "##打包",
       "build": "vite-ssr build",
       "serve": "vite preview",
+      "##部署": "##部署",
       "deploy": "ts-node deploy",
-      "publish": "npm run build && npm run deploy"
+      "##发版": "##发版",
+      "dis": "npm run build && npm run deploy"
     },
     "dependencies": {
       "@element-plus/icons": "^0.0.11",
@@ -45,9 +46,9 @@ npm manifest:
       "highlight.js": "^11.3.1",
       "marked": "4.0.2",
       "moment": "^2.29.1",
-      "vite-ssr": "^0.13.2",
       "vue": "^3.2.6",
-      "vue-router": "4"
+      "vue-router": "4",
+      "vuex": "^4.0.2"
     },
     "devDependencies": {
       "@emotion/css": "^11.5.0",
@@ -67,6 +68,7 @@ npm manifest:
       "unplugin-auto-import": "^0.5.3",
       "unplugin-vue-components": "^0.17.8",
       "vite": "^2.5.4",
+      "vite-ssr": "^0.13.2",
       "vue-tsc": "^0.2.2"
     }
   }
@@ -723,6 +725,11 @@ Lockfile:
     dependencies:
       "@vue/compiler-dom" "3.2.14"
       "@vue/shared" "3.2.14"
+  
+  "@vue/devtools-api@^6.0.0-beta.11":
+    version "6.0.0-beta.21.1"
+    resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.0.0-beta.21.1.tgz#f1410f53c42aa67fa3b01ca7bdba891f69d7bc97"
+    integrity sha512-FqC4s3pm35qGVeXRGOjTsRzlkJjrBLriDS9YXbflHLsfA9FrcKzIyWnLXoNm+/7930E8rRakXuAc2QkC50swAw==
   
   "@vue/devtools-api@^6.0.0-beta.14":
     version "6.0.0-beta.18"
@@ -2472,6 +2479,13 @@ Lockfile:
       "@vue/runtime-dom" "3.2.14"
       "@vue/server-renderer" "3.2.14"
       "@vue/shared" "3.2.14"
+  
+  vuex@^4.0.2:
+    version "4.0.2"
+    resolved "https://registry.yarnpkg.com/vuex/-/vuex-4.0.2.tgz#f896dbd5bf2a0e963f00c67e9b610de749ccacc9"
+    integrity sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==
+    dependencies:
+      "@vue/devtools-api" "^6.0.0-beta.11"
   
   webidl-conversions@^3.0.0:
     version "3.0.1"

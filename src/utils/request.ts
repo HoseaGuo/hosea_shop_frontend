@@ -11,6 +11,7 @@ type PromiseResolve = {
   success: boolean;
   msg: string;
   data: any;
+  headers: any
 };
 
 const instance = axios.create({
@@ -19,9 +20,14 @@ const instance = axios.create({
 });
 
 function request(_options) {
-  let options = Object.assign({}, _options);
+  let options = Object.assign({
+    method: "get",
+    showSuccessMsg: false,
+    showErrorMsg: true
+  }, _options);
 
-  options.method = options.method || "get";
+  // options.method = options.method || "get";
+  // options.showMsg = options.showMsg || "get";
 
   // 处理接口版本，默认 /v1 开头的
   options.url = options.url.replace(
@@ -38,11 +44,16 @@ function request(_options) {
     let result = {
       success: false,
       msg: "",
-      data: {},
+      data: {}, // 后台返回的数据
+      headers: {}, // response headers
     };
     instance.request(options).then(async (response) => {
-      let { data: axiosData, status } = response;
+      let { data: axiosData, status, headers } = response;
       let { data, code, msg } = axiosData;
+
+      // 保存响应头返回的数据
+      result.headers = headers;
+
       if (status === 200) {
         // 请求成功的，根据返回的数据进行进一步的前端处理
         result.success = code === 0;
@@ -51,14 +62,20 @@ function request(_options) {
       } else {
         result.msg = msg || `HTTP status ${status}`;
       }
+      if (result.msg) {
+        if (options.showSuccessMsg) ElMessage.success(result.msg);
+      }
       resolve(result);
-    })
-      .catch((error: any) => {
-        result.msg = error.response?.data?.msg || "服务器请求发生错误，请稍后再来吧！";
-        ElMessage.error(result.msg);
-        resolve(result);
-      });
+    }).catch((error: any) => {
+      result.msg = error.response?.data?.msg || "服务器请求发生错误，请稍后再来吧！";
+      if (options.showErrorMsg) ElMessage.error(result.msg);
+      resolve(result);
+    });
   });
 }
+
+/* function hasOwn(obj: Object, props: string) {
+  return obj.hasOwnProperty(props)
+} */
 
 export default request;

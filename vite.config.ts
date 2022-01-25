@@ -19,6 +19,7 @@ export default defineConfig({
       "@assets": resolve(__dirname, "src/assets"),
       "@": resolve(__dirname, "src"),
       "@components": resolve(__dirname, "src/components"),
+      "@store": resolve(__dirname, "src/store"),
     },
   },
   plugins: [
@@ -40,7 +41,9 @@ export default defineConfig({
     AutoImport({
       imports: ["vue", "vue-router", "@vueuse/core", {
         "@/utils/request": [["default", "request"]],
-        "moment": [["*", "moment"]]
+        "moment": [["*", "moment"]],
+        // 全局引入Vuex store
+        "@/store/index": [["default", "$store"]]
       }],
       resolvers: [
         ElementPlusResolver({
