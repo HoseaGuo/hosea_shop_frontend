@@ -1,11 +1,13 @@
 <script lang="tsx">
 import { ClientOnly } from "vite-ssr";
 import layout from "./components/Layout.vue";
+import login from "./components/Login.vue";
 import * as type from "@store/mutation-types";
 
 export default {
   components: {
     layout,
+    login,
   },
   setup() {
     const $route = useRoute();
@@ -22,7 +24,7 @@ export default {
         }
       } else {
         $router.replace({
-          name: "backendLogin",
+          path: "/backend/login",
         });
       }
     }
@@ -37,7 +39,7 @@ export default {
     $store.dispatch(type.CHECK_USER_LOGIN);
 
     return () => {
-      return <ClientOnly>{hasCheckLogin.value ? <layout /> : null}</ClientOnly>;
+      return <ClientOnly>{hasCheckLogin.value ? isLogin.value ? <layout /> : <login /> : null}</ClientOnly>;
     };
   },
 };

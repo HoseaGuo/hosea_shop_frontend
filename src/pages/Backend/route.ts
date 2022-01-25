@@ -2,10 +2,6 @@ import { RouteRecordRaw } from "vue-router";
 import RouteBridge from "@components/RouteBridge.vue";
 
 let route: RouteRecordRaw[] = [
-  // {
-  //   path: "/backend/login",
-  //   component: () => import("./Login.vue"),
-  // },
   {
     path: "/backend",
     component: () => import("./Home.vue"),
@@ -13,7 +9,7 @@ let route: RouteRecordRaw[] = [
       {
         path: "login",
         name: "backendLogin",
-        component: () => import("./components/Login.vue"),
+        component: () => import("./components/Empty.vue"),
       },
       {
         path: "article-management/article",
@@ -64,6 +60,32 @@ let route: RouteRecordRaw[] = [
             name: "userEdit",
             meta: { title: "用户编辑" },
             component: () => import("./UserManagement/User.vue"),
+          },
+        ],
+      },
+      {
+        path: "menu-management/menu",
+        name: "menu",
+        meta: { title: "目录管理" },
+        component: RouteBridge,
+        children: [
+          {
+            path: "",
+            name: "menuList",
+            meta: { title: "目录列表" },
+            component: () => import("./MenuManagement/MenuList.vue"),
+          },
+          {
+            path: "details",
+            name: "menuCreate",
+            meta: { title: "目录新增" },
+            component: () => import("./MenuManagement/Menu.vue"),
+          },
+          {
+            path: "details/:id",
+            name: "menuEdit",
+            meta: { title: "目录编辑" },
+            component: () => import("./MenuManagement/Menu.vue"),
           },
         ],
       },

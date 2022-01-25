@@ -26,9 +26,6 @@ function request(_options) {
     showErrorMsg: true
   }, _options);
 
-  // options.method = options.method || "get";
-  // options.showMsg = options.showMsg || "get";
-
   // 处理接口版本，默认 /v1 开头的
   options.url = options.url.replace(
     new RegExp(`^(\/?${SERVER_VERSION})?`),
@@ -72,6 +69,15 @@ function request(_options) {
       resolve(result);
     });
   });
+}
+
+// 设置请求头的Authorization
+export function setHeaderAuthorization(token: string) {
+  if (token) {
+    instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete instance.defaults.headers.common['Authorization']
+  }
 }
 
 /* function hasOwn(obj: Object, props: string) {

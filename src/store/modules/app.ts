@@ -1,6 +1,7 @@
 import { Module } from 'vuex'
 import * as type from '../mutation-types'
 import { useRoute, useRouter } from 'vue-router'
+import { setHeaderAuthorization } from '@utils/request'
 
 const app = {
   state: () => ({
@@ -20,8 +21,12 @@ const app = {
       if (payload) {
         // 保存token到本地
         localStorage.setItem('token', payload);
+        // 设置请求头的header-Authorization
+        setHeaderAuthorization(payload);
       } else {
         localStorage.removeItem('token');
+        // 设置请求头的header-Authorization 为空，清除
+        setHeaderAuthorization("");
       }
     },
     [type.SET_USER_IS_LOGIN](state, payload: boolean) {

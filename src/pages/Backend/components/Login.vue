@@ -53,34 +53,33 @@ export default defineComponent({
       formRef.value.resetFields();
     }
 
-    return () =>
-      !isLogin.value ? (
-        <div class="wrapper">
-          <div class="inner wing-blank">
-            <h1>后台登录</h1>
-            <el-form model={formData} ref={formRef} rules={rules} size="mini">
-              <el-form-item prop="username">
-                <el-input type="text" placeholder="请输入账号" v-model={formData.username} autocomplete="off"></el-input>
-              </el-form-item>
-              <el-form-item prop="password">
-                <el-input type="password" placeholder="请输入密码" v-model={formData.password} autocomplete="off"></el-input>
-              </el-form-item>
-              <el-form-item style="text-align: right;">
-                <el-button type="primary" onClick={handleSubmit}>
-                  登录
-                </el-button>
-                <el-button onClick={handleReset}>重置</el-button>
-              </el-form-item>
-            </el-form>
-          </div>
+    return () => (
+      <div class="login-wrapper">
+        <div class="inner wing-blank">
+          <h1>后台登录</h1>
+          <el-form model={formData} ref={formRef} rules={rules} size="mini">
+            <el-form-item prop="username">
+              <el-input type="text" placeholder="请输入账号" v-model={formData.username} autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item prop="password">
+              <el-input type="password" placeholder="请输入密码" v-model={formData.password} autocomplete="off"></el-input>
+            </el-form-item>
+            <el-form-item style="text-align: right;">
+              <el-button type="primary" onClick={handleSubmit}>
+                登录
+              </el-button>
+              <el-button onClick={handleReset}>重置</el-button>
+            </el-form-item>
+          </el-form>
         </div>
-      ) : null;
+      </div>
+    );
   },
 });
 </script>
 
 <style lang="scss">
-.wrapper {
+.login-wrapper {
   position: absolute;
   width: 100%;
   height: 100%;

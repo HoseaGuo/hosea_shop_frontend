@@ -41,6 +41,16 @@ export default {
           },
         ],
       },
+      {
+        title: "目录管理",
+        index: "menu-management",
+        children: [
+          {
+            title: "目录列表",
+            index: "menu",
+          },
+        ],
+      },
     ];
 
     let defaultActive = computed(() => {
@@ -91,8 +101,6 @@ export default {
     }
 
     function logout() {
-      // 跳到登录页
-      $router.replace({ name: "backendLogin" });
       $store.dispatch(type.USER_LOGOUT);
     }
 
@@ -105,13 +113,13 @@ export default {
     };
 
     return () => {
-      return isLogin.value ? (
+      return (
         <div class="backend-wrapper">
           {/** 头部 */}
           <header class="wing-blank">
             <div class="left">
               <router-link to="/">
-                <el-icon size="24">
+                <el-icon size="20">
                   <HomeFilled />
                 </el-icon>
                 <span>首页</span>
@@ -181,8 +189,6 @@ export default {
             </div>
           </div>
         </div>
-      ) : (
-        <router-view />
       );
     };
   },
@@ -208,6 +214,7 @@ export default {
           vertical-align: middle;
         }
         span {
+          margin-left: 6px;
           display: inline-block;
           vertical-align: middle;
         }
