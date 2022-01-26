@@ -60,12 +60,19 @@ function request(_options) {
         result.msg = msg || `HTTP status ${status}`;
       }
       if (result.msg) {
-        if (options.showSuccessMsg) ElMessage.success(result.msg);
+        if (options.showSuccessMsg) ElMessage.success({
+          message: result.msg,
+          duration: 2000,
+          offset: 5
+        });
       }
       resolve(result);
     }).catch((error: any) => {
       result.msg = error.response?.data?.msg || "服务器请求发生错误，请稍后再来吧！";
-      if (options.showErrorMsg) ElMessage.error(result.msg);
+      if (options.showErrorMsg) ElMessage.error({
+        message: result.msg,
+        duration: 2000
+      });
       resolve(result);
     });
   });

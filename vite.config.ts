@@ -22,6 +22,9 @@ export default defineConfig({
       "@store": resolve(__dirname, "src/store"),
     },
   },
+  build: {
+    sourcemap: process.env.NODE_ENV === 'development', // 开发阶段才用，方便调试
+  },
   plugins: [
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
@@ -43,7 +46,8 @@ export default defineConfig({
         "@/utils/request": [["default", "request"]],
         "moment": [["*", "moment"]],
         // 全局引入Vuex store
-        "@/store/index": [["default", "$store"]]
+        "@/store/index": [["default", "$store"]],
+        "underscore": [["default", "_"]],
       }],
       resolvers: [
         ElementPlusResolver({

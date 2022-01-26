@@ -76,13 +76,13 @@ let route: RouteRecordRaw[] = [
             component: () => import("./MenuManagement/MenuList.vue"),
           },
           {
-            path: "details",
+            path: "create",
             name: "menuCreate",
             meta: { title: "目录新增" },
             component: () => import("./MenuManagement/Menu.vue"),
           },
           {
-            path: "details/:id",
+            path: "edit/:id",
             name: "menuEdit",
             meta: { title: "目录编辑" },
             component: () => import("./MenuManagement/Menu.vue"),
