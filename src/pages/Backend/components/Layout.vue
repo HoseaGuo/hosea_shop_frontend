@@ -9,18 +9,15 @@ export default {
     Expand,
     HomeFilled,
   },
-  beforeRouteEnter(to, from, next) {
-    console.log("layout before route enter");
-    next();
-    // ...
-  },
   setup() {
-    let $route = useRoute();
-    let $router = useRouter();
-    let menuCollapse = ref(false);
-    let userInfo = computed(() => $store.state.user.info);
+    const $route = useRoute();
+    const $router = useRouter();
+    const menuCollapse = ref(false);
+    const userInfo = computed(() => $store.state.user.info);
+    const menuTreeData = computed(() => $store.state.user.menuTreeData);
+
     const isLogin = computed(() => $store.state.app.isLogin);
-    let menus = [
+    const menus = [
       {
         title: "文章管理",
         index: "article-management",
@@ -32,66 +29,51 @@ export default {
         ],
       },
       {
-        title: "用户管理",
-        index: "user-management",
+        title: "系统管理",
+        index: "system",
         children: [
           {
             title: "用户列表",
             index: "user",
           },
-        ],
-      },
-      {
-        title: "目录管理",
-        index: "menu-management",
-        children: [
           {
-            title: "目录列表",
+            title: "菜单配置",
             index: "menu",
+          },
+          {
+            title: "角色配置",
+            index: "role",
           },
         ],
       },
     ];
 
-    let defaultActive = computed(() => {
-      let paths = $route.path.split("/").filter(item => !["backend", ""].includes(item));
+    const defaultActive = computed(() => {
+      const paths = $route.path.split("/").filter(item => !["backend", ""].includes(item));
 
-      let activeStr = "/backend/" + paths.slice(0, 2).join("/");
+      const activeStr = "/backend/" + paths.slice(0, 2).join("/");
       return activeStr;
     });
 
     // 面包屑
-    let breadcrumbs: any = computed(() => {
+    const breadcrumbs: any = computed(() => {
       let { matched } = $route;
-      let _breadcrumbs: {
+
+      const _breadcrumbs: {
         title: string;
         path?: string;
       }[] = [];
 
-      // 一级目录
-      let levelOneMatch: any = matched[1];
-      _breadcrumbs.push({
-        title: levelOneMatch.meta.title as string,
-        // path: "/backend/article-management/article",
+      matched = matched.filter(item => item.meta.title);
+
+      matched.forEach(item => {
+        _breadcrumbs.push({
+          title: item.meta.title as string,
+          path: item.path,
+        });
       });
 
-      if (levelOneMatch.children[0]) {
-        // 二级目录
-        let levelTwoMatchItem = {
-          title: levelOneMatch.children[0].meta.title as string,
-          path: levelOneMatch.path,
-        };
-        _breadcrumbs.push(levelTwoMatchItem);
-
-        // 或者会有三级目录
-        let levelThreeMatch = matched[matched.length - 1];
-        if (levelThreeMatch.path !== levelTwoMatchItem.path) {
-          _breadcrumbs.push({
-            title: levelThreeMatch.meta.title as string,
-            path: levelThreeMatch.path,
-          });
-        }
-      }
+      _breadcrumbs[0] && (_breadcrumbs[0].path = "");
 
       return _breadcrumbs;
     });
@@ -104,13 +86,52 @@ export default {
       $store.dispatch(type.USER_LOGOUT);
     }
 
-    let slots = {
+    const slots = {
       dropdown: () => (
         <el-dropdown-menu>
           <el-dropdown-item onClick={logout}>退出登录</el-dropdown-item>
         </el-dropdown-menu>
       ),
     };
+
+    // 渲染目录
+    function renderMenuItem(menus) {
+      return menus.map((menu, index) => {
+        return menu.children ? (
+          <el-sub-menu
+            key={menu.path}
+            index={menu.path}
+            v-slots={{
+              title: () => (
+                <>
+                  <el-icon>
+                    <notebook />
+                  </el-icon>
+                  <span>{menu.name}</span>
+                </>
+              ),
+            }}
+          >
+            {renderMenuItem(menu.children)}
+          </el-sub-menu>
+        ) : (
+          <el-menu-item
+            key={index}
+            index={menu.path}
+            v-slots={{
+              title: () => (
+                <>
+                  <el-icon>
+                    <notebook />
+                  </el-icon>
+                  <span>{menu.name}</span>
+                </>
+              ),
+            }}
+          ></el-menu-item>
+        );
+      });
+    }
 
     return () => {
       return (
@@ -142,38 +163,21 @@ export default {
                 </el-icon>
               </div>
               {/** 目录 */}
-              <el-menu class="backend-menu" router collapse={menuCollapse.value} default-active={defaultActive.value}>
-                {menus.map((menu, index) => {
-                  return (
-                    <el-sub-menu
-                      key={index}
-                      index={menu.index}
-                      v-slots={{
-                        title: () => (
-                          <>
-                            <el-icon>
-                              <notebook />
-                            </el-icon>
-                            <span>{menu.title}</span>
-                          </>
-                        ),
-                      }}
-                    >
-                      {menu.children.map((subMenuItem, subIndex) => {
-                        return (
-                          <el-menu-item key={subIndex} index={`/backend/${menu.index}/${subMenuItem.index}`}>
-                            {subMenuItem.title}
-                          </el-menu-item>
-                        );
-                      })}
-                    </el-sub-menu>
-                  );
-                })}
+              <el-menu
+                class="backend-menu"
+                router
+                collapse={menuCollapse.value}
+                default-active={defaultActive.value}
+              >
+                {renderMenuItem(menuTreeData.value)}
               </el-menu>
             </aside>
             <div class="main">
               {/** 面包屑 */}
-              <el-breadcrumb separator-icon={ArrowRight}>
+              <el-breadcrumb
+                v-show={!["/backend/403", "/backend"].includes($route.path)}
+                separator-icon={ArrowRight}
+              >
                 {breadcrumbs.value.map((item, index) => {
                   return (
                     <el-breadcrumb-item key={index} to={item.path}>

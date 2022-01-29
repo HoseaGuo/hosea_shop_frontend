@@ -2,11 +2,12 @@
 import { onMounted, ref } from "vue";
 // import request from "@utils/request";
 import moment from "moment";
-import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
+import CustomTable from "@components/CustomTable.vue";
 
 export default {
   setup() {
+    const tabelRef = ref<any>(null);
     // 表格数据
     let tableData = ref([]);
 
@@ -14,8 +15,8 @@ export default {
 
     let columnData = [
       {
-        prop: "username",
-        label: "用户名",
+        prop: "name",
+        label: "角色名",
       },
       {
         prop: "createdAt",
@@ -38,10 +39,10 @@ export default {
           default: ({ row }) => {
             return (
               <>
-                <el-button size="mini" type="primary" onclick={editArticle.bind(null, row)}>
+                <el-button size="mini" type="primary" onclick={handleEdit.bind(null, row)}>
                   编辑
                 </el-button>
-                <el-button size="mini" type="danger" onclick={deleteUser.bind(null, row)}>
+                <el-button size="mini" type="danger" onclick={handleDelete.bind(null, row)}>
                   删除
                 </el-button>
               </>
@@ -52,25 +53,25 @@ export default {
     ];
 
     // 删除文章
-    async function deleteUser(row) {
+    async function handleDelete(row) {
       let result = await request({
-        url: "/v1/user",
+        url: "/role",
         method: "delete",
         data: {
           _id: row._id,
         },
+        showSuccessMsg: true,
       });
       if (result.success) {
-        // ElMessage.success(result.msg);
-        queryList();
+        tabelRef.value.query();
       }
     }
 
-    // 编辑文章
-    async function editArticle(row) {
+    // 编辑
+    async function handleEdit(row) {
       // 跳转到编辑页面
       $router.push({
-        name: "articleEdit",
+        name: "roleEdit",
         params: {
           id: row._id,
         },
@@ -80,7 +81,7 @@ export default {
     // 查询列表
     async function queryList() {
       let result = await request({
-        url: "/v1/user",
+        url: "/role",
         showMsg: false,
       });
       if (result.success) {
@@ -95,18 +96,14 @@ export default {
     return () => {
       return (
         <div>
-          <div style="margin-bottom: 10px;">
-            <router-link to={{ name: "userCreate" }}>
+          <div style="margin-bottom: 10px; text-align: right;">
+            <router-link to={{ name: "roleCreate" }}>
               <el-button type="primary" size="mini">
                 新增
               </el-button>
             </router-link>
           </div>
-          <el-table size="mini" data={tableData.value} border style={{ width: "100%" }}>
-            {columnData.map((item, index) => {
-              return <el-table-column key={index} {...item} v-slots={item.slots} />;
-            })}
-          </el-table>
+          <CustomTable ref={tabelRef} columnData={columnData} url="/role" />
         </div>
       );
     };

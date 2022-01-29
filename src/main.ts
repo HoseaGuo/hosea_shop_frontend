@@ -2,7 +2,7 @@
 import App from "./App.vue";
 import routes from "./routes";
 import viteSSR from "vite-ssr";
-import store from './store'
+import $store from './store'
 // 样式
 import "./styles/reset.scss";
 import "./styles/public.scss";
@@ -19,21 +19,24 @@ hljs.configure({ ignoreUnescapedHTML: true });
 export default viteSSR(App, { routes }, async ({ app, router }) => {
   /* Vite SSR main hook for custom logic */
   /* const { app, router, initialState, ... } = context */
-  // router.beforeEach(async (to, from) => {
+  router.beforeEach(async (to, from) => {
 
-  //   console.log(to)
+    // console.log(to)
 
-  //   console.log(import.meta.env.SSR)
+    // 如果需要登录才可以访问的话，
+    // if (to.meta.requiresAuth) {
+    //   console.log("页面需要权限");
+    // }
 
-  //   /* if (to.meta.state) {
-  //     return // Already has state
-  //   }
+    /* if (to.meta.state) {
+      return // Already has state
+    }
 
-  //   const response = await fetch('my/api/data/' + to.name)
+    const response = await fetch('my/api/data/' + to.name)
 
-  //   // This will modify initialState
-  //   to.meta.state = await response.json() */
-  // })
+    // This will modify initialState
+    to.meta.state = await response.json() */
+  })
 
   // #在main.js定义自定义指令
   app.directive("highlight", function (el) {
@@ -46,7 +49,7 @@ export default viteSSR(App, { routes }, async ({ app, router }) => {
   });
 
   // 将 store 实例作为插件安装
-  app.use(store);
+  app.use($store);
 
   // app.use(ElementPlus);
 

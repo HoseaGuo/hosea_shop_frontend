@@ -1,6 +1,5 @@
 <script lang="tsx">
 import * as type from "@store/mutation-types";
-import underscore from "underscore";
 export default defineComponent({
   setup() {
     const $router = useRouter();
@@ -22,14 +21,8 @@ export default defineComponent({
       index: 0,
       parentId: "0",
     });
-    const menuList = computed(() => $store.state.menu.menuList);
 
-    /* const parentIdOptions = ref([
-      {
-        label: "无",
-        value: "0",
-      },
-    ]); */
+    const menuList = computed(() => $store.state.menu.menuList);
 
     const parentIdOptions = computed(() => {
       const menuList = $store.state.menu.menuList;
@@ -41,7 +34,8 @@ export default defineComponent({
       ];
       // 取根目录
       menuList.forEach(menu => {
-        if (menu.parentId === "0") options.push({ label: menu.name, value: menu._id });
+        // 所有一级目录，并且目录的_id不能和本身相同
+        if (menu.parentId === "0" && menu._id !== docId) options.push({ label: menu.name, value: menu._id });
       });
       return options;
     });
@@ -98,6 +92,24 @@ export default defineComponent({
         });
     }
 
+    async function handleDelete() {
+      const result = await request({
+        url: "/menu",
+        method: "delete",
+        data: {
+          _id: docId,
+        },
+        showSuccessMsg: true,
+      });
+      if (result.success) {
+        // 保存后，重新获取一次目录
+        $store.dispatch(type.GET_MENU_LIST);
+        $router.replace({
+          name: "menuList",
+        });
+      }
+    }
+
     onMounted(() => {
       // 获取目录数据
       if (menuList.value.length === 0) {
@@ -133,6 +145,11 @@ export default defineComponent({
             <el-button type="primary" onClick={handleSave}>
               保存
             </el-button>
+            {isEdit.value ? (
+              <el-button type="danger" onClick={handleDelete}>
+                删除
+              </el-button>
+            ) : null}
           </el-form-item>
         </el-form>
       </div>

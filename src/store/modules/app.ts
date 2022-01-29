@@ -36,6 +36,9 @@ const app = {
   actions: {
     // 页面进来时候判断用户是否已经登录
     async [type.CHECK_USER_LOGIN]({ commit, state }, payload) {
+
+      if (state.hasCheckLogin) return;
+
       try {
         const token = localStorage.getItem('token');
         if (token) {
@@ -44,7 +47,8 @@ const app = {
             method: "post",
             data: {
               token
-            }
+            },
+            showErrorMsg: false
           });
           if (result.success) {
             // 保存token
@@ -82,7 +86,7 @@ const app = {
     // 退出登录
     [type.USER_LOGOUT]({ commit }) {
       commit(type.SET_USER_TOKEN, "");
-      commit(type.SET_USER_INFO, {});
+      commit(type.RESET_USER);
       // 已经登录
       commit(type.SET_USER_IS_LOGIN, false);
     }

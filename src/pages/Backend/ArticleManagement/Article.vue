@@ -56,7 +56,7 @@ export default defineComponent({
 
     async function queryDocById() {
       let result = await request({
-        url: "/v1/article",
+        url: "/article",
         data: {
           _id: docId,
         },
@@ -81,7 +81,7 @@ export default defineComponent({
       if (isEdit.value) postData._id = docId;
 
       let result = await request({
-        url: "/v1/article",
+        url: "/article",
         method: isEdit.value ? "put" : "post",
         data: postData,
       });
@@ -116,15 +116,8 @@ export default defineComponent({
 <template>
   <div class="wrapper">
     <div class="top">
-      <input
-        v-model="title"
-        type="text"
-        class="article-title"
-        placeholder="请输入标题"
-      />
-      <el-button type="primary" class="btn-submit" @click="handleSubmit"
-        >保存</el-button
-      >
+      <input v-model="title" type="text" class="article-title" placeholder="请输入标题" />
+      <el-button type="primary" class="btn-submit" @click="handleSubmit">保存</el-button>
     </div>
     <div class="article-content">
       <textarea @input="handleInput" v-model="markdown" />

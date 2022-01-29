@@ -9,6 +9,8 @@ import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 const { resolve } = require("path");
 
+const IS_DEV = process.env.NODE_ENV === 'development';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/",
@@ -23,7 +25,7 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: process.env.NODE_ENV === 'development', // 开发阶段才用，方便调试
+    sourcemap: IS_DEV, // 开发阶段才用，方便调试
   },
   plugins: [
     vueJsx({
@@ -64,6 +66,7 @@ export default defineConfig({
           importStyle: false,
         }),
       ],
+      directoryAsNamespace: true,
     }),
     // TsPluginInject({
     //   modules: {

@@ -1,19 +1,25 @@
-html{
-  font-family: 'microsoft yahei';
+html {
+  font-family: "microsoft yahei";
   color: #666;
 }
 
-body{
+body {
   margin: 0;
 }
 
-
-*{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p {
   line-height: 1;
   box-sizing: border-box;
 }
 
 input,
-textarea{
+textarea {
   outline: none;
 }

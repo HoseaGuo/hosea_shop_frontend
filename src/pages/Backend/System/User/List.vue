@@ -2,11 +2,10 @@
 import { onMounted, ref } from "vue";
 // import request from "@utils/request";
 import moment from "moment";
-import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
 import CustomTable from "@components/CustomTable.vue";
 
-export default defineComponent({
+export default {
   setup() {
     const tabelRef = ref<any>(null);
     // 表格数据
@@ -16,17 +15,8 @@ export default defineComponent({
 
     let columnData = [
       {
-        prop: "title",
-        label: "标题",
-        slots: {
-          default: ({ row }) => {
-            return (
-              <>
-                <a href={`/article/details/${row._id}`} target="_blank">{row.title}</a>
-              </>
-            );
-          },
-        },
+        prop: "username",
+        label: "用户名",
       },
       {
         prop: "createdAt",
@@ -49,10 +39,10 @@ export default defineComponent({
           default: ({ row }) => {
             return (
               <>
-                <el-button size="mini" type="primary" onclick={editArticle.bind(null, row)}>
+                <el-button size="mini" type="primary" onclick={handleEdit.bind(null, row)}>
                   编辑
                 </el-button>
-                <el-button size="mini" type="danger" onclick={deleteArticle.bind(null, row)}>
+                <el-button size="mini" type="danger" onclick={handleDelete.bind(null, row)}>
                   删除
                 </el-button>
               </>
@@ -63,9 +53,9 @@ export default defineComponent({
     ];
 
     // 删除文章
-    async function deleteArticle(row) {
+    async function handleDelete(row) {
       let result = await request({
-        url: "/article",
+        url: "/user",
         method: "delete",
         data: {
           _id: row._id,
@@ -77,23 +67,22 @@ export default defineComponent({
       }
     }
 
-    // 编辑文章
-    async function editArticle(row) {
+    // 编辑
+    async function handleEdit(row) {
       // 跳转到编辑页面
       $router.push({
-        name: "articleEdit",
+        name: "userEdit",
         params: {
           id: row._id,
         },
       });
     }
 
-    // 编辑文章
-
     // 查询列表
-    async function queryArticle() {
+    async function queryList() {
       let result = await request({
-        url: "/article",
+        url: "/user",
+        showMsg: false,
       });
       if (result.success) {
         tableData.value = result.data;
@@ -101,23 +90,23 @@ export default defineComponent({
     }
 
     onMounted(() => {
-      queryArticle();
+      queryList();
     });
 
     return () => {
       return (
         <div>
           <div style="margin-bottom: 10px; text-align: right;">
-            <router-link to={{ name: "articleCreate" }}>
+            <router-link to={{ name: "userCreate" }}>
               <el-button type="primary" size="mini">
                 新增
               </el-button>
             </router-link>
           </div>
-          <CustomTable ref={tabelRef} columnData={columnData} url="/article" />
+          <CustomTable ref={tabelRef} columnData={columnData} url="/user" />
         </div>
       );
     };
   },
-});
+};
 </script>

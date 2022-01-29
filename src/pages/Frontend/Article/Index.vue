@@ -27,7 +27,7 @@ export default {
       });
       if (result.success) {
         // console.log(result.data);
-        articleList.value = result.data;
+        articleList.value = result.data.list;
       }
     }
 
