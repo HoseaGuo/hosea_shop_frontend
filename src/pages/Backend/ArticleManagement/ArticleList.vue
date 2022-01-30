@@ -22,7 +22,7 @@ export default defineComponent({
           default: ({ row }) => {
             return (
               <>
-                <a href={`/article/details/${row._id}`} target="_blank">{row.title}</a>
+                <a href={`/article/${row._id}`} target="_blank">{row.title}</a>
               </>
             );
           },

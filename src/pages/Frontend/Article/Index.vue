@@ -22,7 +22,7 @@ export default {
     // 获取文章列表
     async function getArticleList() {
       let result = await request({
-        url: "v1/article",
+        url: "/article",
         showMsg: false,
       });
       if (result.success) {
@@ -38,7 +38,7 @@ export default {
       <div class="article">
         {articleList.value.map((article: any, index) => {
           return (
-            <router-link key={index} to={`/article/details/${article._id}`}>
+            <router-link key={index} to={`/article/${article._id}`}>
               <p>{article.title}</p>
             </router-link>
           );
