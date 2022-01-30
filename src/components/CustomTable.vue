@@ -1,5 +1,4 @@
 <script lang="tsx">
-import { on } from "events";
 import { defineComponent } from "vue";
 
 export default defineComponent({

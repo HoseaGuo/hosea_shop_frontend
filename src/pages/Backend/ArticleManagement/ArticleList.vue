@@ -29,8 +29,14 @@ export default defineComponent({
         },
       },
       {
+        prop: "readCount",
+        label: "阅读量",
+        width: 80
+      },
+      {
         prop: "createdAt",
         label: "创建时间",
+        width: 150,
         formatter: function (row, column, cellValue, index) {
           return moment(cellValue).format("YYYY-MM-DD HH:mm:ss");
         },
@@ -38,6 +44,7 @@ export default defineComponent({
       {
         prop: "updatedAt",
         label: "修改时间",
+        width: 150,
         formatter: function (row, column, cellValue, index) {
           return moment(cellValue).format("YYYY-MM-DD HH:mm:ss");
         },
@@ -45,14 +52,15 @@ export default defineComponent({
       {
         prop: "",
         label: "操作",
+        width: 160,
         slots: {
           default: ({ row }) => {
             return (
               <>
-                <el-button size="mini" type="primary" onclick={editArticle.bind(null, row)}>
+                <el-button size="small" type="primary" onclick={editArticle.bind(null, row)}>
                   编辑
                 </el-button>
-                <el-button size="mini" type="danger" onclick={deleteArticle.bind(null, row)}>
+                <el-button size="small" type="danger" onclick={deleteArticle.bind(null, row)}>
                   删除
                 </el-button>
               </>

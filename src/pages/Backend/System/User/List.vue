@@ -13,6 +13,8 @@ export default {
 
     let $router = useRouter();
 
+    let userInfo = computed(() => $store.state.user.info)
+
     let columnData = [
       {
         prop: "username",
@@ -37,12 +39,13 @@ export default {
         label: "操作",
         slots: {
           default: ({ row }) => {
+            const disabled = row.username === 'admin' && userInfo.value.username !== 'admin';
             return (
               <>
-                <el-button size="mini" type="primary" onclick={handleEdit.bind(null, row)}>
+                <el-button disabled={disabled} size="mini" type="primary" onclick={handleEdit.bind(null, row)}>
                   编辑
                 </el-button>
-                <el-button size="mini" type="danger" onclick={handleDelete.bind(null, row)}>
+                <el-button disabled={disabled} size="mini" type="danger" onclick={handleDelete.bind(null, row)}>
                   删除
                 </el-button>
               </>

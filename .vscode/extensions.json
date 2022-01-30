@@ -1,4 +1,4 @@
 {
-  "recommendations": ["johnsoncodehk.volar", "jpoissonnier.vscode-styled-components"],
+  "recommendations": ["johnsoncodehk.volar", "formulahendry.auto-rename-tag"],
   "unwantedRecommendations": ["octref.vetur"]
 }
