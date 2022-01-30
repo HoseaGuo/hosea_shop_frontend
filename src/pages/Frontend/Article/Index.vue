@@ -26,7 +26,6 @@ export default {
         showMsg: false,
       });
       if (result.success) {
-        // console.log(result.data);
         articleList.value = result.data.list;
       }
     }

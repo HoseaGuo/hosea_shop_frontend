@@ -31,11 +31,15 @@ const startZip = async (distPath) => {
 
 // 连接服务器
 async function connectSSH() {
+
   let id_rsa_path = "";
   if (USER_HOME) {
     // id_rsa的路径
     id_rsa_path = path.resolve(USER_HOME, '.ssh/id_rsa');
   }
+
+  console.log('ssh开始连接...')
+  
   try {
     await ssh.connect({
       host: "8.134.82.20",
@@ -45,8 +49,9 @@ async function connectSSH() {
     console.log('ssh连接成功')
     return ssh;
   } catch (e) {
+    console.log('ssh连接失败')
     console.log(e);
-    return null;
+    process.exit(1); //退出流程
   }
 }
 

@@ -26,6 +26,7 @@ export default defineConfig({
   },
   build: {
     sourcemap: IS_DEV, // 开发阶段才用，方便调试
+    // minify: false
   },
   plugins: [
     vueJsx({
@@ -46,7 +47,7 @@ export default defineConfig({
     AutoImport({
       imports: ["vue", "vue-router", "@vueuse/core", {
         "@/utils/request": [["default", "request"]],
-        "moment": [["*", "moment"]],
+        "moment": [["default", "moment"]],
         // 全局引入Vuex store
         "@/store/index": [["default", "$store"]],
         "underscore": [["default", "_"]],
