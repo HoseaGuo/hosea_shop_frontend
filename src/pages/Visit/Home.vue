@@ -18,7 +18,7 @@ export default {
       ],
     });
 
-    onMounted(() => {});
+    onMounted(() => { });
 
     return () => (
       <div class="home-page">
@@ -29,6 +29,8 @@ export default {
               <span>文章</span>
             </router-link>
           </div>
+
+          {/* 
           <div class="item">
             <router-link to="/article" class="inner">
               <span>文章</span>
@@ -43,7 +45,7 @@ export default {
             <router-link to="/article" class="inner">
               <span>文章</span>
             </router-link>
-          </div>
+          </div> */}
         </div>
       </div>
     );

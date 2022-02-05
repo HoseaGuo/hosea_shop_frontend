@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { NodeSSH } from "node-ssh";
 import compressing from "compressing"; // 压缩zip
+import config from "./config";
 
 const ssh = new NodeSSH();
 
@@ -12,10 +13,13 @@ const distPath = "./dist";
 
 const distZipPath = "dist.zip";
 
-const webDir = "/data/www/hosea/";
+// 文件发布到服务器上所在目录绝对路径
+const webDir = config.webDir;
+
+console.log(webDir);
 
 // 压缩dist文件
-const startZip = async (distPath) => {
+const startZip = async distPath => {
   try {
     console.log("压缩dist成zip");
 
@@ -31,25 +35,24 @@ const startZip = async (distPath) => {
 
 // 连接服务器
 async function connectSSH() {
-
   let id_rsa_path = "";
   if (USER_HOME) {
     // id_rsa的路径
-    id_rsa_path = path.resolve(USER_HOME, '.ssh/id_rsa');
+    id_rsa_path = path.resolve(USER_HOME, ".ssh/id_rsa");
   }
 
-  console.log('ssh开始连接...')
-  
+  console.log("ssh开始连接...");
+
   try {
     await ssh.connect({
       host: "8.134.82.20",
       username: "root",
-      privateKey: fs.readFileSync(id_rsa_path, 'utf8')
+      privateKey: fs.readFileSync(id_rsa_path, "utf8"),
     });
-    console.log('ssh连接成功')
+    console.log("ssh连接成功");
     return ssh;
   } catch (e) {
-    console.log('ssh连接失败')
+    console.log("ssh连接失败");
     console.log(e);
     process.exit(1); //退出流程
   }
@@ -59,7 +62,7 @@ async function connectSSH() {
 async function uploadFile(fileName) {
   console.log("开始上传dist压缩文件");
   try {
-    await ssh.putFile(fileName, webDir + fileName);
+    await ssh.putFile(fileName, `${webDir}/${fileName}`);
     console.log("上传dist压缩文件成功");
   } catch (e) {
     console.log(e);
@@ -79,12 +82,12 @@ const unzipFile = async () => {
     // 进入目录
     await runCommand(`cd ${webDir}`, webDir);
     // 解压
-    console.log(`开始解压zip包`);
+    console.log(`开始解压线上zip包`);
     await runCommand(`unzip -o ${distZipPath} && rm -f ${distZipPath}`, webDir);
     console.log("解压成功");
   } catch (err) {
     console.log(err);
-    console.log(`zip包解压失败`);
+    console.log(`线上zip包解压失败`);
     process.exit(1);
   }
 };
@@ -94,13 +97,14 @@ async function restartServer() {
     // 进入./dist/server目录
     await runCommand(`cd dist/server`, `${webDir}/dist/server`);
     // 安装npm包
-    console.log('npm包安装开始')
+    console.log("npm包安装开始");
     await runCommand(`npm i`, `${webDir}/dist/server`);
-    console.log('npm包安装结束')
+    console.log("npm包安装结束");
 
-    // 重启pm2项目 www.hosea.com
-    console.log("重启pm2服务")
-    await runCommand(`pm2 restart www.hosea.com`, `${webDir}/dist/server`);
+    // 重启pm2项目
+    // await runCommand(`cd ${webDir}/node-server`, `${webDir}/node-server`);
+    // console.log("重启pm2服务");
+    // await runCommand(`pm2 restart app.js`, `${webDir}/node-server`);
 
     ssh.dispose(); //断开连接
   } catch (e) {
@@ -115,7 +119,7 @@ const deleteZip = async () => {
   return new Promise((resolve, reject) => {
     console.log(`开始删除本地zip包`);
 
-    fs.unlink(distZipPath, (err) => {
+    fs.unlink(distZipPath, err => {
       if (err) {
         console.log(err);
         console.log("删除本地zip失败");
@@ -148,4 +152,4 @@ async function startDeploy() {
 
 startDeploy();
 
-export { };
+export {};
