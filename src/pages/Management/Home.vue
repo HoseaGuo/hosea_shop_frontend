@@ -39,13 +39,13 @@ export default defineComponent({
 
     if (isLogin) {
       // 如果是登录页，跳到后台首页
-      if (to.path === "/backend/login") {
-        return { path: "/backend" };
+      if (to.name === "managementLogin") {
+        return { name: "managementLogin" };
       }
     } else {
-      if (to.path !== "/backend/login") {
+      if (to.name !== "managementLogin") {
         return {
-          path: "/backend/login",
+          name: "managementLogin",
         };
       }
     }
@@ -61,14 +61,14 @@ export default defineComponent({
 
     function watchUserLoginStatus() {
       if (isLogin.value) {
-        const { path } = $route;
+        const { name } = $route;
         // 如果是登录页，跳到后台首页
-        if (path === "/backend/login") {
-          $router.replace({ path: "/backend" });
+        if (name === "managementLogin") {
+          $router.replace({ path: "/management" });
         }
       } else {
         $router.replace({
-          path: "/backend/login",
+          name: "managementLogin",
         });
       }
     }

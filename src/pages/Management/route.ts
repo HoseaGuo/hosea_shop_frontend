@@ -5,11 +5,11 @@ import * as type from "@store/mutation-types";
 let route: RouteRecordRaw[] = [
   // {
   //   path: "/backend/login",
-  //   name: "backendLogin",
+  //   name: "managementLogin",
   //   component: () => import("./components/Login.vue")
   // },
   {
-    path: "/backend",
+    path: "/management",
     component: () => import("./Home.vue"),
     // beforeEnter: async (to, from) => {
     //   console.log(`from ${from.path}, to ${to.path}`)
@@ -58,7 +58,7 @@ let route: RouteRecordRaw[] = [
       },
       {
         path: "login",
-        name: "backendLogin",
+        name: "managementLogin",
         component: () => import("./components/Empty.vue"),
       },
       {

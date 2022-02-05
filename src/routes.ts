@@ -4,8 +4,8 @@ import {
   createWebHistory,
   RouteRecordRaw,
 } from "vue-router";
-import backendRoutes from "./pages/Backend/route";
-import frontendRoutes from "./pages/Frontend/route";
+import managementRoutes from "./pages/Management/route";
+import visitRoutes from "./pages/Visit/route";
 
 // Auto generates routes from vue files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
@@ -21,9 +21,9 @@ import frontendRoutes from "./pages/Frontend/route";
 
 let routes: RouteRecordRaw[] = [
   // 前端页面
-  ...frontendRoutes,
+  ...visitRoutes,
   // 后台页面
-  ...backendRoutes,
+  ...managementRoutes,
 ];
 
 export default routes;

@@ -48,10 +48,11 @@ export default {
       },
     ];
 
+    // 当前激活的目录
     const defaultActive = computed(() => {
-      const paths = $route.path.split("/").filter(item => !["backend", ""].includes(item));
+      const paths = $route.path.split("/").filter(item => !["management", ""].includes(item));
 
-      const activeStr = "/backend/" + paths.slice(0, 2).join("/");
+      const activeStr = "/management/" + paths.slice(0, 2).join("/");
       return activeStr;
     });
 
