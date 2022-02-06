@@ -11,6 +11,7 @@ export default defineComponent({
   },
   setup() {
     let title = "后台登录 - Hosea爱生活";
+    const isTest = process.env.KEY === 'test';
     const formRef = ref<any>(null);
     const isLogin = computed(() => $store.state.app.isLogin);
 
@@ -18,6 +19,11 @@ export default defineComponent({
       username: "",
       password: "",
     });
+
+    if (isTest) {
+      formData.username = "test";
+      formData.password = "123456";
+    }
 
     const rules = {
       username: [

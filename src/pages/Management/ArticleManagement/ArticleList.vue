@@ -96,22 +96,6 @@ export default defineComponent({
       });
     }
 
-    // 编辑文章
-
-    // 查询列表
-    async function queryArticle() {
-      let result = await request({
-        url: "/article",
-      });
-      if (result.success) {
-        tableData.value = result.data;
-      }
-    }
-
-    onMounted(() => {
-      queryArticle();
-    });
-
     return () => {
       return (
         <div>
