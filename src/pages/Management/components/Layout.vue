@@ -136,7 +136,7 @@ export default {
 
     return () => {
       return (
-        <div class="backend-wrapper">
+        <div class="management-wrapper">
           {/** 头部 */}
           <header class="wing-blank">
             <div class="left">
@@ -165,7 +165,7 @@ export default {
               </div>
               {/** 目录 */}
               <el-menu
-                class="backend-menu"
+                class="management-menu"
                 router
                 collapse={menuCollapse.value}
                 default-active={defaultActive.value}
@@ -176,7 +176,7 @@ export default {
             <div class="main">
               {/** 面包屑 */}
               <el-breadcrumb
-                v-show={!["/backend/403", "/backend"].includes($route.path)}
+                v-show={!["/management/403", "/management"].includes($route.path)}
                 separator-icon={ArrowRight}
               >
                 {breadcrumbs.value.map((item, index) => {
@@ -201,7 +201,7 @@ export default {
 </script>
 
 <style lang="scss">
-.backend-wrapper {
+.management-wrapper {
   header {
     height: 60px;
     background: #eee;
@@ -254,7 +254,7 @@ export default {
         }
       }
 
-      .backend-menu {
+      .management-menu {
         flex: 1;
         overflow: auto;
         transition: 0.5s ease;
@@ -272,7 +272,7 @@ export default {
           }
         }
 
-        .backend-menu {
+        .management-menu {
           width: 200px;
         }
       }

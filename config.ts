@@ -9,7 +9,7 @@ type ConfigObj = {
   [key: string]: Config;
 };
 
-const key = process.env.KEY || "";
+const key = process.env.KEY || "www";
 
 const configObj: ConfigObj = {
   www: {
@@ -22,9 +22,6 @@ const configObj: ConfigObj = {
   },
 };
 
-const config: Config = configObj[key] || {
-  apiUrl: "",
-  webDir: "",
-};
+const config: Config = configObj[key];
 
 export default config;

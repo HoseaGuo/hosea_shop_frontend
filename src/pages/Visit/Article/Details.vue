@@ -3,9 +3,12 @@ import "highlight.js/styles/vs2015.css"; // 引入高亮样式 这里我用的�
 import { ElMessage } from "element-plus";
 import marked from "@utils/marked";
 import { useHead } from "@vueuse/head";
-export default {
+import { useContext } from 'vite-ssr'
+
+export default defineComponent({
   async setup() {
     let $route = useRoute();
+    let $router = useRouter();
     let article = reactive({
       title: "",
       content: "",
@@ -31,68 +34,103 @@ export default {
       ],
     });
 
+    function noArticle() {
+      ElMessage({
+        type: "info",
+        duration: 1300,
+        message: "没有文章",
+
+      });
+      setTimeout(() => {
+        $router.replace({
+          path: "/article"
+        })
+      }, 1500)
+    }
+
     async function getArticleDetails() {
       let { id } = $route.params;
-      if (id) {
-        let result = await request({
-          url: "/article",
-          data: {
-            _id: id,
-          },
-        });
-        if (result.success) {
-          Object.assign(article, result.data)
-        }
+      /* 
+        利用useContext，获取initialState，来判断是否已经获取过数据，从而避免在服务端渲染重复获取数据。
+       */
+      const { initialState } = useContext();
+
+      const articleKey = id + "";
+
+      initialState["article"] = initialState["article"] || {};
+
+      const articleState = ref(initialState["article"])
+
+      if (articleState.value[articleKey]) {
+        Object.assign(article, articleState.value[articleKey]);
       } else {
-        ElMessage("没有找到文章");
+        if (id) {
+          let result = await request({
+            url: "/article",
+            data: {
+              _id: id,
+            },
+            showErrorMsg: false
+          });
+          if (result.success) {
+            Object.assign(article, result.data);
+
+            initialState["article"][articleKey] = result.data;
+          } else {
+            noArticle();
+          }
+        } else {
+          noArticle();
+        }
       }
     }
 
     // 加载文章数据
     await getArticleDetails();
 
-    return () => {
-      return (
-        <div class="page">
-          <div class="header">
-            <div class="public-container wing-blank"></div>
-          </div>
-          <div class="article-title sticky-top">
-            <h1 class="public-container wing-blank">{article.title}</h1>
-          </div>
-          {
-            article.title && <>
-              <div class="article-info">
-                <div class="public-container">
-                  <div class="base">
-                    <span>
-                      {moment(article.createdAt).format("YYYY-MM-DD HH:mm")}
-                    </span>
-                    <span>
-                      阅读 {article.readCount}
-                    </span>
-                  </div>
-                  {/* <div class="tags">
+    return {
+      article
+    }
+  },
+  render() {
+    return <div class="page">
+      <div class="header">
+        <div class="public-container wing-blank"></div>
+      </div>
+      <div class="article-title sticky-top">
+        <h1 class="public-container wing-blank">{this.article.title}</h1>
+      </div>
+      {
+        this.article.title && <>
+          <div class="article-info">
+            <div class="public-container">
+              <div class="base">
+                <span>
+                  {moment(this.article.createdAt).format("YYYY-MM-DD HH:mm")}
+                </span>
+                <span>
+                  阅读 {this.article.readCount}
+                </span>
+              </div>
+              {/* <div class="tags">
                 <span>健康</span>
                 <span>生活</span>
               </div> */}
-                </div>
-              </div>
-              <div class="article-body">
-                <div class="public-container wing-blank">
-                  <div
-                    class="article-content"
-                    innerHTML={marked(article.content)}
-                  ></div>
-                </div>
-              </div>
-            </>
-          }
-        </div>
-      );
-    };
-  },
-};
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="public-container wing-blank">
+              <div
+                class="article-content"
+                innerHTML={marked(this.article.content)}
+              ></div>
+            </div>
+          </div>
+        </>
+      }
+    </div>
+  }
+});
 </script>
 
 <style lang="scss" scoped>

@@ -56,7 +56,6 @@ export default defineComponent({
     return () => (
       <div class="login-wrapper">
         <div class="inner wing-blank">
-          <h1>后台登录</h1>
           <el-form model={formData} ref={formRef} rules={rules} size="mini">
             <el-form-item prop="username">
               <el-input type="text" placeholder="请输入账号" v-model={formData.username} autocomplete="off"></el-input>

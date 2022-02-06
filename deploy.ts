@@ -65,8 +65,8 @@ async function uploadFile(fileName) {
     await ssh.putFile(fileName, `${webDir}/${fileName}`);
     console.log("上传dist压缩文件成功");
   } catch (e) {
-    console.log(e);
     console.log("上传dist压缩文件失败");
+    console.log(e);
     process.exit(1); //退出流程
   }
 }

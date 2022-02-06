@@ -17,6 +17,6 @@ const routes: RouteRecordRaw[] = [
     path: "/:pathMatch(.*)",
     redirect: "/", // 重定向到首页
   },
-]
+];
 
 export default routes;
