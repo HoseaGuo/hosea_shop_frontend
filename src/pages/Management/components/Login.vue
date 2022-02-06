@@ -2,6 +2,7 @@
 import { ClientOnly } from "vite-ssr";
 import { useHead } from "@vueuse/head";
 import * as type from "@store/mutation-types";
+import logo from "@assets/logo-h-300.png";
 
 export default defineComponent({
   beforeRouteEnter(to, from, next) {
@@ -62,6 +63,7 @@ export default defineComponent({
     return () => (
       <div class="login-wrapper">
         <div class="inner wing-blank">
+          <img class="logo" src={logo} />
           <el-form model={formData} ref={formRef} rules={rules} size="mini">
             <el-form-item prop="username">
               <el-input type="text" placeholder="请输入账号" v-model={formData.username} autocomplete="off"></el-input>
@@ -93,6 +95,12 @@ export default defineComponent({
     width: 100%;
     max-width: 350px;
     margin: auto;
+    .logo {
+      display: block;
+      margin: 0 auto 30px;
+      width: 120px;
+      height: 120px;
+    }
     h1 {
       text-align: center;
       font-size: 18px;
