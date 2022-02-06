@@ -16,14 +16,10 @@
 
 `yarn dis:test`
 
-#### 正式地址：
-
-###### http://www.hosea.shop
+##### 正式地址： http://www.hosea.shop
 
 ###### 后台页面：http://www.hosea.shop/management
 
-#### 测试地址：
-
-###### http://test.hosea.shop
+##### 测试地址： http://test.hosea.shop
 
 ###### 后台页面：http://test.hosea.shop/management
