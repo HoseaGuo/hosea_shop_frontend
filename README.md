@@ -8,11 +8,11 @@
 
 `yarn build`
 
-###### 部署到http://www.hosea.shop
+###### 部署到 http://www.hosea.shop
 
 `yarn dis:www`
 
-###### 部署到http://test.hosea.shop
+###### 部署到 http://test.hosea.shop
 
 `yarn dis:test`
 
