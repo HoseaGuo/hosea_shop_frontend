@@ -24,18 +24,18 @@ export default {
       <div class="home-page">
         <h1>Hosea爱生活</h1>
         <div class="nav">
-          <div class="item">
+          <div class="item item-article">
             <router-link to="/article" class="inner">
               <span>文章</span>
             </router-link>
           </div>
-
+          <div class="item item-animation">
+            <router-link to="/other" class="inner">
+              <span>其它</span>
+            </router-link>
+          </div>
           {/* 
-          <div class="item">
-            <router-link to="/article" class="inner">
-              <span>文章</span>
-            </router-link>
-          </div>
+          
           <div class="item">
             <router-link to="/article" class="inner">
               <span>文章</span>
@@ -77,11 +77,25 @@ export default {
         right: 0;
         top: 0;
         bottom: 0;
-        background-color: #e3d6fb;
-        border-radius: 2vw;
+        background: #e3d6fb;
+        border-radius: 50%;
         display: flex;
         span {
           margin: auto;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+      &.item-article {
+        .inner {
+          background: #7092d9;
+        }
+      }
+      &.item-animation {
+        .inner {
+          background: #df963c;
         }
       }
       // width: 25vw;

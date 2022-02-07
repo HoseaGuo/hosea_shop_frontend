@@ -14,6 +14,10 @@ const routes: RouteRecordRaw[] = [
     component: () => import("./Article/Details.vue"),
   },
   {
+    path: "/other",
+    component: () => import("./Animation/Index.vue"),
+  },
+  {
     path: "/:pathMatch(.*)",
     redirect: "/", // 重定向到首页
   },
