@@ -178,6 +178,7 @@ export default defineComponent({
     font-weight: normal;
   }
 }
+
 .article-info {
   // color: #333;
   margin-bottom: 70px;
@@ -203,6 +204,7 @@ export default defineComponent({
     }
   }
 }
+
 .article-body {
   padding: 20px 0;
   color: #333;
@@ -223,7 +225,31 @@ export default defineComponent({
   /* padding: 30px 50px; */
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
+  .header {
+    margin-bottom: 10px;
+    max-height: 20vh;
+    background-size: cover;
+    background-position: center;
+  }
+  .article-title h1 {
+    padding: 10px 4px;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: auto;
+  }
+
+  .article-info {
+    margin-bottom: 20px;
+    > div {
+      padding: 0 10px;
+    }
+  }
+
+  .article-body {
+    padding: 0;
+  }
+
   .white-block {
     border-radius: 0;
     padding: 10px 14px;
