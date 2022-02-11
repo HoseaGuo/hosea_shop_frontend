@@ -25,7 +25,7 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: IS_DEV, // 开发阶段才用，方便调试
+    sourcemap: true, // 开发阶段才用，方便调试
     // minify: false
     // manifest: true,
     // ssrManifest: true
