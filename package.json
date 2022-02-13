@@ -8,6 +8,8 @@
     "build": "vite-ssr build",
     "##部署": "##部署",
     "deploy": "ts-node deploy",
+    "deploy:test": "cross-env KEY=test ts-node deploy",
+    "deploy:www": "cross-env KEY=www ts-node deploy",
     "##发版www.hosea.shop": "##发版www.hosea.shop",
     "dis:www": "cross-env KEY=www \"npm run build && npm run deploy\"",
     "##发版test.hosea.shop": "##发版test.hosea.shop",
