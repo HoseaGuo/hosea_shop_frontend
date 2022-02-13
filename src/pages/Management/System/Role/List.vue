@@ -90,7 +90,7 @@ export default {
     }
 
     onMounted(() => {
-      queryList();
+      // queryList();
     });
 
     return () => {
